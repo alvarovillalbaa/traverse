@@ -56,7 +56,7 @@ disabled, produced a 24,497-byte package. Static tar inspection matched all
 declarations. No tests, private environment, Git history, acceptance logs or
 approval proposals are packed. The fingerprint records the exact artifact
 SHA256 and file hashes. It was not installed, imported, published to a registry
-or treated as runtime proof. The owned temporary package/cache is removed after
+or treated as runtime proof. The owned temporary package/cache was removed after
 receipt review. No lockfile is needed for this package's zero runtime/dev
 dependencies; consumer tools remain separately supplied and gated.
 
@@ -64,3 +64,23 @@ Static checks do not import product modules or execute the example app. No local
 installation, large checkout, build, browser download, server, database, CI,
 account, provider setting or paid service was used. This library needs no
 Vercel/Supabase resource for its Node runtime.
+
+## GitHub publication and open checks
+
+Created the dedicated public
+[personal repository](https://github.com/alvarovillalbaa/traverse) and published
+source commit
+[`334e86cc79d73f75ddc62fb29855b5da051bea1a`](https://github.com/alvarovillalbaa/traverse/commit/334e86cc79d73f75ddc62fb29855b5da051bea1a).
+Connected GitHub metadata/ref/tree readback confirmed the public owner/name,
+`main` identity and all 30 file paths, modes, types and blob SHAs against local
+source, without truncation. The connector cannot create repositories; the
+existing GitHub CLI performed the authorized creation/push. No Auth setup,
+permission grant or account change was performed.
+
+The separate 45-case request links the immutable proposal at that source.
+It requests only existing-Node execution of authored boundaries, not real
+Vitest, Playwright/browser, model, installation, CI or cloud resources. No
+approval has been inferred from the active portfolio goal. This receipt-only
+follow-up preserves all 28 frozen source/proposal hashes and all 21 inspected
+package-file bytes. The complete product/portfolio goals remain unfinished
+until their actual runtime and consumer integration acceptance is established.
