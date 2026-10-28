@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Traverse authored acceptance app</title>
+<style>body{font:18px/1.5 system-ui,sans-serif;max-width:40rem;margin:3rem auto;padding:0 1.5rem;color:#222;background:#faf9f6}button,input{font:inherit;padding:.6rem;border:1px solid #777;border-radius:.4rem}button{cursor:pointer;background:#edf4ed}label{display:block;margin-top:1rem}input{max-width:90%}h1{line-height:1.2}.note{color:#555}li{margin:.5rem 0}</style></head>
+<body>
+<h1>Launch checklist</h1>
+<p class="note">Authored local test app. No accounts, external requests, payments or stored data.</p>
+<label for="project-name">Project name</label><input id="project-name" autocomplete="off" maxlength="100">
+<button id="add-project" type="button">Add project</button>
+<ul aria-label="Projects" id="projects"></ul>
+<button id="review" type="button">Mark reviewed</button>
+<p role="status" id="status">Awaiting review</p>
+<script>
+const field = document.getElementById('project-name');
+document.getElementById('add-project').addEventListener('click', () => {
+  if (!field.value.trim()) return;
+  const row = document.createElement('li');
+  row.textContent = field.value;
+  document.getElementById('projects').append(row);
+  field.value = '';
+});
+document.getElementById('review').addEventListener('click', () => {
+  document.getElementById('status').textContent = 'Ready for review';
+});
+</script>
+</body></html>

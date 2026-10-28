@@ -1,0 +1,19 @@
+{
+  "name": "@alvarovillalbaa/traverse",
+  "version": "0.1.0",
+  "description": "Isolated browser journeys, exact checks and optional agent steps for Vitest.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=24" },
+  "exports": {
+    ".": { "types": "./types/index.d.ts", "import": "./src/index.js" },
+    "./playwright": { "types": "./types/playwright.d.ts", "import": "./src/playwright.js" },
+    "./vitest": { "types": "./types/vitest.d.ts", "import": "./src/vitest.js" }
+  },
+  "files": ["src", "types", "examples", "scripts/check.mjs", "docs/spec.md", "docs/architecture.md", "docs/references.md", "docs/acceptance.md", "AGENTS.md", "README.md", "LICENSE"],
+  "scripts": {
+    "check": "node scripts/check.mjs"
+  },
+  "repository": { "type": "git", "url": "https://github.com/alvarovillalbaa/traverse.git" },
+  "bugs": { "url": "https://github.com/alvarovillalbaa/traverse/issues" }
+}

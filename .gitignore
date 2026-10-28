@@ -1,0 +1,7 @@
+node_modules/
+*.tgz
+artifacts/
+tests/tmp/
+.env
+.env.*
+!.env.example

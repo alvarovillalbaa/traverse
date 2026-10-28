@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "status": "source preview;45 authored cases unexecuted;no product imports/browser/model execution",
+  "runtimeProfile": {
+    "node": "24.21.0",
+    "typescriptStaticChecker": "5.9.3",
+    "runtimeDependencies": 0
+  },
+  "authoredCases": {
+    "tests/unit/playwright.test.mjs": [
+      "Playwright adapter drives exact native locators and preserves explicit operation timeouts",
+      "explicit navigation rejects foreign origins and credentials and detects redirects after navigation was attempted",
+      "ambiguous or absent action targets never dispatch a native click",
+      "deterministic checks return observed booleans and count zero without inventing elements",
+      "unsupported targets keys and oversized fills fail before native interaction",
+      "observation reads only body ARIA and rejects incomplete oversized UTF-8 content",
+      "cancelled setup closes a late context and never touches the supplied browser",
+      "caller cancellation closes an in-flight owned context and fences late native effects",
+      "a setup deadline closes a context whose page promise completes too late",
+      "native failures and cleanup failures expose finite codes rather than private driver messages",
+      "closing one adapter is idempotent and leaves another context and consumer browser usable"
+    ],
+    "tests/unit/session.test.mjs": [
+      "locators are inert and exact deterministic actions change independently observed app state",
+      "invalid options fail before constructing a driver",
+      "executor actions return fresh bounded observations for a genuinely sequential journey",
+      "an absent executor reports setup required instead of pretending a semantic step passed",
+      "unknown blocked or mode-inappropriate executor outcomes fail closed",
+      "semantic assertions always execute live and failed assertions remain failed steps",
+      "assertion mode cannot mutate even when an executor catches the attempted action error",
+      "concurrent operations on one session are rejected rather than silently queued",
+      "concurrent executor actions cannot consume a second action or hide their failure",
+      "an executor cannot report done while one of its owned actions is still pending",
+      "manual and executor actions share one action budget without extra dispatch",
+      "agent action and assertion calls share an explicit agent-step budget",
+      "cancelled setup closes a driver that arrives later and never opens a usable session",
+      "setup has an owned deadline and a late driver is still cleaned exactly once",
+      "session and step deadlines fence late executor results and their saved action callbacks",
+      "a synchronous executor cannot acknowledge success after blocking past its monotonic deadline",
+      "caller cancellation stops a pending executor and prevents its later action dispatch",
+      "closing pending work cancels it reports incompleteness and closes only once",
+      "idle cancellation and session expiry remain terminal failures at every close",
+      "cleanup failures and deadlines remain finite visible outcomes",
+      "evidence is detached frozen and redacted while preserving a failed awaited step",
+      "agent success semantic verdicts value checks and close do not qualify replay records",
+      "a semantic assertion preserves pending actions but only a later deterministic check records them",
+      "an already true unrelated check cannot cache an action when the observed UI did not change",
+      "a later successful locator check enables replay in a fresh journey without an executor",
+      "manual intervention or a fill prevents pending actions from becoming replayable",
+      "replay divergence after dispatch cannot repeat the action through a live executor",
+      "replay is bound to explicit scope and starting UI while assertions remain live",
+      "exact scope goal and UI strings distinguish isolated UTF-16 units from Unicode replacement characters"
+    ],
+    "tests/unit/vitest.test.mjs": [
+      "the actual Vitest fixture lazily owns setup use teardown and safe host metadata",
+      "direct body failures survive cleanup and recorded Vitest failures remain runner owned",
+      "cleanup failure after a successful body remains visible and excludes raw driver errors",
+      "body cleanup and evidence callback failures are all preserved without replacing the body verdict",
+      "an evidence callback failure is visible after cleanup and caller cancellation reaches setup"
+    ]
+  },
+  "sha256": {
+    ".gitignore": "a19c67c98c194d71c005d9b7d19f204c2ef2909b6d78263c75b0406814cf1d18",
+    "AGENTS.md": "5b45de4c6efcf2ed8d67a8825705a73eb2718adfaf4480a5946360179f6a7a5a",
+    "LICENSE": "6e3ae862a0f98e9f377f98f71fd86160932dad7186416f5509a335703c6fe3b5",
+    "README.md": "fd6e0ecda0a3ff769f4bd7a0d153858588969d4d27155b7ac5ab0041749f88e8",
+    "docs/acceptance.md": "f0963b31cc6c6470c5eda410691e2874a5b6b510303121ffca46452a642f93ed",
+    "docs/architecture.md": "e9b1b868e275de1d5e72922efabf4482c4390a37d4eb9e463e3d0b5a510e8a6b",
+    "docs/proposals/local-checks.md": "7e192a2389c611098e3d7bb15dcefab50e9082f1970d250a6ec80ecc4c119469",
+    "docs/references.md": "962c531faa227dc992a9d29d7eacde68043473e88c39d6c64c7c3f9bcd810932",
+    "docs/spec.md": "535430ee3858dba1b520aef16621e414a999d06caee5d08e5bc0749cf0e4bedb",
+    "examples/app/index.html": "8cfbef4dcc1bc2ff164ff46b2ed84bf900fd738c6ad299923de2ff066ef8000f",
+    "examples/journeys.test.ts": "39bd320b7e16dab72d48d4670fd8d359f0d2bd7e9dcf7909df85a9b8e92e8709",
+    "examples/server.mjs": "b739f6313cc934d4a0fdf961348596dc63191a6abb85d42d76e07129e5491e72",
+    "package.json": "3c245bc988e42a3cd337ea664f4aff1a59f1c73ac221258da91cccb566b7bc1a",
+    "scripts/check.mjs": "90c2da2e653fadc67d45f83951b786acd004e30e3ed8e36d2135a13af2486eb7",
+    "src/index.js": "9a53ecd8fe678fe62264fb26d0d0195a3f9261c101fc7ff9c62e7d5d8316b1dd",
+    "src/playwright.js": "5aaede045ff3f4d021504f4cd40bc4df92366fdd82d04656e546cb438bf09b2f",
+    "src/protocol.js": "2a026c15fdd081942437d6a5b91de7c94189f316e91d1f0845d7b1a00e8d47dd",
+    "src/replay.js": "a26c78523cfbef6c1fa23ef6d081672a12915b230df560117b4c865037594e05",
+    "src/session.js": "94100e8617b1edf8c61336a3aefecba59d52a2f635b7aa7f7dd01d2bc73094d1",
+    "src/vitest.js": "d5e233976f7c3cb05b7edd01561ab2f8516a31a6a4d420f5234e3a88188fc427",
+    "tests/helpers/authored-app.mjs": "7e5aab076b82d1fa2a2887e8e6d437c80959816486958b8cea093dbb16107c60",
+    "tests/helpers/authored-playwright.mjs": "b472ac823303d920af119812b7807ed5a0a9aeff38454181fc4f6c100f6bed87",
+    "tests/unit/playwright.test.mjs": "45ff1cc49772fdaa41d89e20f6e5a483b3d83b524d42b3ca4def37bc6089abb2",
+    "tests/unit/session.test.mjs": "a3a06d748be65fa46227e58917faa779b2d740e78f8b26d3c5a0304ccab48210",
+    "tests/unit/vitest.test.mjs": "868e4e1b21143616448be7d7d01a201268be2dc978043370e64689d252f6e328",
+    "types/index.d.ts": "7f0decf99605a1e1124424360d8af0dc6f65a161e87be72013e298437203a3b6",
+    "types/playwright.d.ts": "eea9033da2940ddb89933a16ecc367196573fb5e4d5c340ec1bbd4336bedcfc6",
+    "types/vitest.d.ts": "0149869ff1514b7a7d1e39f3bac9b4eeffcae60f1304aa61a4f60b44206216af"
+  },
+  "packageInspection": {
+    "filename": "alvarovillalbaa-traverse-0.1.0.tgz",
+    "bytes": 24497,
+    "sha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7",
+    "entries": [
+      {
+        "path": "LICENSE",
+        "bytes": 1078,
+        "mode": "0o644",
+        "sha256": "6e3ae862a0f98e9f377f98f71fd86160932dad7186416f5509a335703c6fe3b5"
+      },
+      {
+        "path": "examples/app/index.html",
+        "bytes": 1497,
+        "mode": "0o644",
+        "sha256": "8cfbef4dcc1bc2ff164ff46b2ed84bf900fd738c6ad299923de2ff066ef8000f"
+      },
+      {
+        "path": "src/index.js",
+        "bytes": 146,
+        "mode": "0o644",
+        "sha256": "9a53ecd8fe678fe62264fb26d0d0195a3f9261c101fc7ff9c62e7d5d8316b1dd"
+      },
+      {
+        "path": "src/playwright.js",
+        "bytes": 11787,
+        "mode": "0o644",
+        "sha256": "5aaede045ff3f4d021504f4cd40bc4df92366fdd82d04656e546cb438bf09b2f"
+      },
+      {
+        "path": "src/protocol.js",
+        "bytes": 5720,
+        "mode": "0o644",
+        "sha256": "2a026c15fdd081942437d6a5b91de7c94189f316e91d1f0845d7b1a00e8d47dd"
+      },
+      {
+        "path": "src/replay.js",
+        "bytes": 4253,
+        "mode": "0o644",
+        "sha256": "a26c78523cfbef6c1fa23ef6d081672a12915b230df560117b4c865037594e05"
+      },
+      {
+        "path": "src/session.js",
+        "bytes": 17504,
+        "mode": "0o644",
+        "sha256": "94100e8617b1edf8c61336a3aefecba59d52a2f635b7aa7f7dd01d2bc73094d1"
+      },
+      {
+        "path": "src/vitest.js",
+        "bytes": 2808,
+        "mode": "0o644",
+        "sha256": "d5e233976f7c3cb05b7edd01561ab2f8516a31a6a4d420f5234e3a88188fc427"
+      },
+      {
+        "path": "package.json",
+        "bytes": 908,
+        "mode": "0o644",
+        "sha256": "3c245bc988e42a3cd337ea664f4aff1a59f1c73ac221258da91cccb566b7bc1a"
+      },
+      {
+        "path": "docs/acceptance.md",
+        "bytes": 1816,
+        "mode": "0o644",
+        "sha256": "f0963b31cc6c6470c5eda410691e2874a5b6b510303121ffca46452a642f93ed"
+      },
+      {
+        "path": "AGENTS.md",
+        "bytes": 1823,
+        "mode": "0o644",
+        "sha256": "5b45de4c6efcf2ed8d67a8825705a73eb2718adfaf4480a5946360179f6a7a5a"
+      },
+      {
+        "path": "docs/architecture.md",
+        "bytes": 6971,
+        "mode": "0o644",
+        "sha256": "e9b1b868e275de1d5e72922efabf4482c4390a37d4eb9e463e3d0b5a510e8a6b"
+      },
+      {
+        "path": "README.md",
+        "bytes": 7786,
+        "mode": "0o644",
+        "sha256": "fd6e0ecda0a3ff769f4bd7a0d153858588969d4d27155b7ac5ab0041749f88e8"
+      },
+      {
+        "path": "docs/references.md",
+        "bytes": 2730,
+        "mode": "0o644",
+        "sha256": "962c531faa227dc992a9d29d7eacde68043473e88c39d6c64c7c3f9bcd810932"
+      },
+      {
+        "path": "docs/spec.md",
+        "bytes": 3439,
+        "mode": "0o644",
+        "sha256": "535430ee3858dba1b520aef16621e414a999d06caee5d08e5bc0749cf0e4bedb"
+      },
+      {
+        "path": "scripts/check.mjs",
+        "bytes": 3304,
+        "mode": "0o644",
+        "sha256": "90c2da2e653fadc67d45f83951b786acd004e30e3ed8e36d2135a13af2486eb7"
+      },
+      {
+        "path": "examples/server.mjs",
+        "bytes": 1007,
+        "mode": "0o644",
+        "sha256": "b739f6313cc934d4a0fdf961348596dc63191a6abb85d42d76e07129e5491e72"
+      },
+      {
+        "path": "types/index.d.ts",
+        "bytes": 3509,
+        "mode": "0o644",
+        "sha256": "7f0decf99605a1e1124424360d8af0dc6f65a161e87be72013e298437203a3b6"
+      },
+      {
+        "path": "examples/journeys.test.ts",
+        "bytes": 2256,
+        "mode": "0o644",
+        "sha256": "39bd320b7e16dab72d48d4670fd8d359f0d2bd7e9dcf7909df85a9b8e92e8709"
+      },
+      {
+        "path": "types/playwright.d.ts",
+        "bytes": 507,
+        "mode": "0o644",
+        "sha256": "eea9033da2940ddb89933a16ecc367196573fb5e4d5c340ec1bbd4336bedcfc6"
+      },
+      {
+        "path": "types/vitest.d.ts",
+        "bytes": 854,
+        "mode": "0o644",
+        "sha256": "0149869ff1514b7a7d1e39f3bac9b4eeffcae60f1304aa61a4f60b44206216af"
+      }
+    ],
+    "allPackagedBytesMatchedSource": true,
+    "installed": false,
+    "runtimeImported": false,
+    "registryPublished": false
+  }
+}
