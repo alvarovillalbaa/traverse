@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "status": "authored consumer acceptance; dependencies, typecheck, real runner, browser and CI unexecuted",
+  "initialSourceCommit": "334e86cc79d73f75ddc62fb29855b5da051bea1a",
+  "initialFrozenFiles": 28,
+  "packageFiles": 21,
+  "environment": {
+    "os": "ubuntu-24.04",
+    "node": "24.21.0",
+    "vitest": "4.0.16",
+    "playwright": "1.57.0",
+    "typescript": "5.9.3",
+    "@types/node": "24.10.1",
+    "jobTimeoutMinutes": 20
+  },
+  "consumerLock": null,
+  "authoredCases": {
+    "tests/integration/vitest-fixture.test.ts": [
+      "unused Traverse fixture remains lazy in the real runner",
+      "real Vitest initializes the requested fixture and tears down an exact checked journey",
+      "a second real Vitest test receives pristine independently owned app state"
+    ],
+    "tests/integration/vitest-negative.test.ts": [
+      "recorded Vitest body failure survives successful Traverse teardown",
+      "Traverse cleanup failure makes a successful Vitest body fail",
+      "Traverse evidence callback failure makes a successful Vitest body fail",
+      "recorded body failure and Traverse cleanup failure both reach the Vitest result",
+      "idle caller cancellation cannot become a passing Vitest teardown",
+      "real Vitest timeout aborts the fixture signal and closes its owned driver"
+    ],
+    "tests/e2e/browser.test.ts": [
+      "Vitest fixture fills and submits exact controls through public exports",
+      "scripted executor receives real observations and assertions always run live",
+      "a later checked action replays in a fresh context without a second executor call",
+      "an unchecked successful action is not replayed in another context",
+      "owned contexts isolate UI data and preserve a consumer context",
+      "cancellation closes a real page and fences a late executor action",
+      "a failed protocol step remains visible at real-page teardown",
+      "a native locator deadline cannot turn into a passing session"
+    ]
+  },
+  "authoredCaseCount": 17,
+  "requiredSuiteExits": {
+    "lifecycle": 0,
+    "negative": 1,
+    "browser": 0
+  },
+  "sha256": {
+    "docs/proposals/consumer-checks.md": "d7806d095dd9215aececc1c77381688e917e009913daf984d85838f01e9dcd41",
+    "docs/proposals/consumer-ci.yml.example": "b1b72998987d50309bc1d9b3db5d5131a567374cae88f1cf3a0879f935186902",
+    "docs/proposals/consumer-environment.md": "b460a4697e1f6c90a79606764ecea5049f47083ce2ee2039c113ab1a846645ba",
+    "docs/proposals/consumer-package.json.example": "8f9b6d7a5a2bdeedf247153113a88971b0fcf3466fdf9da671cfcc06b35a46cc",
+    "docs/proposals/consumer-tsconfig.json.example": "5009f66b63328fb2614bbcf5b5f08488a1be7ca56c6053bbd9c9957ef3dc7006",
+    "docs/proposals/consumer-vitest.config.ts.example": "c32d02dc81d2b9c5d98b75f8f74edd8f26a4ac5b5d90af8d13afdd24996edbcf",
+    "docs/results/2026/10-28/consumer-source.md": "63dac85144d73cd8f40382a9d5e0519119d07c699f165864a4c8a75d82bb5020",
+    "docs/results/2026/10-28/source-fingerprint.json": "ee74cc843d9dd09b57612152fcb0d92b13e2d75d6c011dad055ef625e065a500",
+    "scripts/prepare-consumer.mjs": "0f6e58a35a59166c7735458d565db5d17182e0f2106e4b1dee37e59d634e0a4b",
+    "tests/README.md": "9cdb5b346eceaa621aa8c3b7de22b42c50b8b043966a212c956e3699c92e6eec",
+    "tests/e2e/browser.test.ts": "58e317ba763036cad5822dd29284a816d8564c86720186ebfcb59c7b70fbb7d1",
+    "tests/fixtures/consumer-types.ts": "148fede6cc25a59bc05a786599e09ed461bce30202d7db6e6382e6c62c436105",
+    "tests/fixtures/vitest-driver.ts": "80329dc1240ca5c7e4b8b794ef00f0a152d5c96cb036a0cc9b03cb3e31c419ca",
+    "tests/fixtures/vitest-receipt-reporter.ts": "8ee32fa2e3282b8a2e3d76589c4a40ce2b7eb93dfb837f7ed83d90561702fdf0",
+    "tests/integration/vitest-fixture.test.ts": "ceaa79e3a481d75419c3563e44fdadf08fa7915ec8b822f4d5bb4fa8c77282d3",
+    "tests/integration/vitest-negative.test.ts": "8457a85d8eb0ee32ea0f0594523cca757230a6d1ebdad8d41a705b0ad81841dc",
+    "tests/scripts/assert-vitest-result.mjs": "136e24dbefb110a5d40a5a7144952e3010ad5bf7f7cad018e7847938305dd7f9",
+    "tests/scripts/run-consumer-suites.mjs": "ca4a395e43ed3bc2737757b31ece1a02a32c80e580543297ddab0a7b9cbb101b"
+  }
+}

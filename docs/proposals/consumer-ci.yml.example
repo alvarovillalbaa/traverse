@@ -1,0 +1,80 @@
+# INACTIVE. Copy only after explicit consumer dependency/browser/temporary-CI approval.
+# Remove the active workflow after the focused acceptance run.
+name: Temporary Traverse consumer acceptance
+on:
+  push:
+    branches: [qa/traverse-consumer]
+    paths: [.github/workflows/traverse-consumer.yml]
+permissions:
+  contents: read
+jobs:
+  consumer:
+    if: github.repository == 'alvarovillalbaa/traverse' && github.event.repository.private == false && github.ref == 'refs/heads/qa/traverse-consumer'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      CI: "true"
+      DO_NOT_TRACK: "1"
+      NPM_CONFIG_REGISTRY: https://registry.npmjs.org/
+      NODE_AUTH_TOKEN: ""
+      NPM_TOKEN: ""
+      AI_GATEWAY_API_KEY: ""
+      VERCEL_OIDC_TOKEN: ""
+      OPENAI_API_KEY: ""
+      ANTHROPIC_API_KEY: ""
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24.21.0
+          package-manager-cache: false
+      - name: Stage and verify the exact installed-consumer sources
+        id: prepare
+        run: node scripts/prepare-consumer.mjs "$RUNNER_TEMP/traverse-consumer-$GITHUB_RUN_ID"
+      - name: Resolve once and install only the isolated consumer
+        run: |
+          cd "$TRAVERSE_CONSUMER_DIR"
+          export NPM_CONFIG_CACHE="$TRAVERSE_CONSUMER_DIR/.npm-cache"
+          if [ ! -f package-lock.json ]; then
+            npm install --package-lock-only --ignore-scripts --no-audit --no-fund --loglevel=error
+          fi
+          cp package-lock.json artifacts/package-lock.json
+          sha256sum package-lock.json
+          npm ci --ignore-scripts --no-audit --no-fund --loglevel=error
+      - name: Install only reviewed Chromium headless tooling
+        run: |
+          cd "$TRAVERSE_CONSUMER_DIR"
+          export PLAYWRIGHT_BROWSERS_PATH="$TRAVERSE_CONSUMER_DIR/.browsers"
+          node node_modules/playwright/cli.js install --with-deps --only-shell chromium
+      - name: Check actual types, runner verdicts and browser journeys
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/traverse-consumer-${{ github.run_id }}/.browsers
+        run: node "$TRAVERSE_CONSUMER_DIR/tests/scripts/run-consumer-suites.mjs" "$TRAVERSE_CONSUMER_DIR"
+      - name: Bound textual evidence before uploading
+        id: evidence
+        if: always() && steps.prepare.outcome == 'success'
+        run: |
+          node --input-type=module <<'NODE'
+          import { readdirSync, lstatSync } from 'node:fs';
+          import { resolve } from 'node:path';
+          const folder = resolve(process.env.TRAVERSE_CONSUMER_DIR, 'artifacts');
+          const entries = readdirSync(folder);
+          if (entries.length < 1 || entries.length > 40) throw new Error('invalid_artifact_inventory');
+          let bytes = 0;
+          for (const name of entries) {
+            const info = lstatSync(resolve(folder, name));
+            if (!/^[a-z0-9.-]+$/.test(name) || !info.isFile() || info.isSymbolicLink()) throw new Error('invalid_artifact');
+            bytes += info.size;
+          }
+          if (bytes > 3 * 1024 * 1024) throw new Error('artifact_budget_exceeded');
+          console.log(JSON.stringify({textFiles:entries.length,bytes}));
+          NODE
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always() && steps.evidence.outcome == 'success'
+        with:
+          name: traverse-consumer-${{ github.run_id }}
+          path: ${{ runner.temp }}/traverse-consumer-${{ github.run_id }}/artifacts/*
+          retention-days: 1
+          if-no-files-found: error

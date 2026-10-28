@@ -1,0 +1,27 @@
+import { defineConfig } from 'vitest/config';
+
+const files = {
+  lifecycle: 'tests/integration/vitest-fixture.test.ts',
+  negative: 'tests/integration/vitest-negative.test.ts',
+  browser: 'tests/e2e/browser.test.ts',
+};
+const mode = process.env.TRAVERSE_ACCEPTANCE_MODE;
+if (mode !== 'lifecycle' && mode !== 'negative' && mode !== 'browser') {
+  throw new Error('traverse_consumer_mode_invalid');
+}
+
+export default defineConfig({
+  test: {
+    environment: 'node',
+    include: [files[mode]],
+    pool: 'forks',
+    maxWorkers: 1,
+    fileParallelism: false,
+    isolate: true,
+    retry: 0,
+    testTimeout: 10_000,
+    hookTimeout: 25_000,
+    reporters: ['json', './tests/fixtures/vitest-receipt-reporter.ts'],
+    outputFile: { json: `artifacts/${mode}.json` },
+  },
+});
