@@ -1,0 +1,177 @@
+# Temporary approved consumer acceptance; sealed SDK/test/template inputs stay unchanged.
+# Remove the active workflow after the focused acceptance run.
+name: Temporary Traverse consumer acceptance
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/traverse-consumer.yml]
+permissions:
+  contents: read
+jobs:
+  consumer:
+    if: github.repository == 'alvarovillalbaa/traverse' && github.event.repository.private == false && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      SOURCE_COMMIT: abd36915010dc2a3f932454f00f0665e39db11ea
+      CI: "true"
+      DO_NOT_TRACK: "1"
+      NPM_CONFIG_REGISTRY: https://registry.npmjs.org/
+      NODE_AUTH_TOKEN: ""
+      NPM_TOKEN: ""
+      AI_GATEWAY_API_KEY: ""
+      VERCEL_OIDC_TOKEN: ""
+      OPENAI_API_KEY: ""
+      ANTHROPIC_API_KEY: ""
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.SOURCE_COMMIT }}
+          persist-credentials: false
+      - name: Verify immutable source checkout
+        run: test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24.21.0
+          package-manager-cache: false
+      - name: Stage and verify the exact installed-consumer sources
+        id: prepare
+        run: node scripts/prepare-consumer.mjs "$RUNNER_TEMP/traverse-consumer-$GITHUB_RUN_ID"
+      - name: Resolve once and install only the isolated consumer
+        run: |
+          cd "$TRAVERSE_CONSUMER_DIR"
+          export NPM_CONFIG_CACHE="$TRAVERSE_CONSUMER_DIR/.npm-cache"
+          if [ ! -f package-lock.json ]; then
+            npm install --package-lock-only --ignore-scripts --no-audit --no-fund --loglevel=error
+          fi
+          cp package-lock.json artifacts/package-lock.json
+          sha256sum package-lock.json
+          npm ci --ignore-scripts --no-audit --no-fund --loglevel=error
+      - name: Install only reviewed Chromium headless tooling
+        run: |
+          cd "$TRAVERSE_CONSUMER_DIR"
+          export PLAYWRIGHT_BROWSERS_PATH="$TRAVERSE_CONSUMER_DIR/.browsers"
+          node node_modules/playwright/cli.js install --with-deps --only-shell chromium
+      - name: Check actual types, runner verdicts and browser journeys
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/traverse-consumer-${{ github.run_id }}/.browsers
+        run: node "$TRAVERSE_CONSUMER_DIR/tests/scripts/run-consumer-suites.mjs" "$TRAVERSE_CONSUMER_DIR"
+      - name: Print bounded verdicts and lossless public lock
+        if: always() && steps.prepare.outcome == 'success'
+        run: |
+          node --input-type=module <<'NODE'
+          import { lstatSync, readFileSync, readdirSync, realpathSync } from 'node:fs';
+          import { isAbsolute, join } from 'node:path';
+          import { createHash } from 'node:crypto';
+          import { gzipSync } from 'node:zlib';
+          const hash = value => createHash('sha256').update(value).digest('hex');
+          let phase = 'ownership';
+          try {
+            const runId = process.env.GITHUB_RUN_ID, temporary = process.env.RUNNER_TEMP;
+            if (!/^\d{1,24}$/.test(runId ?? '') || !temporary || !isAbsolute(temporary)) throw new Error();
+            const base = realpathSync(temporary), root = join(base, 'traverse-consumer-' + runId);
+            if (root !== process.env.TRAVERSE_CONSUMER_DIR || lstatSync(root).isSymbolicLink() || realpathSync(root) !== root) throw new Error();
+            function read(path, maximum) {
+              const before = lstatSync(path);
+              if (!before.isFile() || before.isSymbolicLink() || before.size > maximum) throw new Error();
+              const value = readFileSync(path), after = lstatSync(path);
+              if (value.length !== before.size || before.dev !== after.dev || before.ino !== after.ino || before.mtimeMs !== after.mtimeMs) throw new Error();
+              return value;
+            }
+            phase = 'artifacts';
+            const folder = join(root, 'artifacts'), files = readdirSync(folder);
+            if (lstatSync(folder).isSymbolicLink() || realpathSync(folder) !== folder || files.length > 40) throw new Error();
+            const data = new Map(), digests = []; let total = 0;
+            for (const name of files.sort()) {
+              if (!/^[a-z0-9.-]{1,255}$/.test(name)) throw new Error();
+              const value = read(join(folder, name), 3 * 1024 * 1024); total += value.length;
+              if (total > 3 * 1024 * 1024) throw new Error();
+              data.set(name, value); digests.push({ name, bytes: value.length, sha256: hash(value) });
+            }
+            const parseIssues = [];
+            function json(name) {
+              const value = data.get(name); if (!value) return null;
+              try { return JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(value)); }
+              catch { parseIssues.push(name); return null; }
+            }
+            phase = 'lock';
+            let lock = { status: 'missing' };
+            if (data.has('package-lock.json')) {
+              const raw = data.get('package-lock.json');
+              if (raw.length > 256 * 1024 || !raw.equals(read(join(root, 'package-lock.json'), 256 * 1024))) throw new Error();
+              const decoded = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(raw));
+              if (!decoded.packages || typeof decoded.packages !== 'object' || Array.isArray(decoded.packages)) throw new Error();
+              for (const item of Object.values(decoded.packages)) {
+                if (typeof item?.resolved !== 'string') continue;
+                if (['file:traverse.tgz', 'file:./traverse.tgz'].includes(item.resolved)) continue;
+                const url = new URL(item.resolved);
+                if (url.protocol !== 'https:' || url.hostname !== 'registry.npmjs.org' || url.port || url.username || url.password || url.search || url.hash) throw new Error();
+              }
+              const gzip = gzipSync(raw, { level: 9 });
+              if (gzip.length > 64 * 1024) throw new Error();
+              lock = { status: 'available', encoding: 'gzip-base64', rawBytes: raw.length, sha256: hash(raw), gzipBytes: gzip.length, gzipSha256: hash(gzip), gzipBase64: gzip.toString('base64') };
+            }
+            phase = 'receipts';
+            const preparation = json('preparation.json'), environment = json('consumer-environment.json'), run = json('consumer-run.json');
+            const modes = ['lifecycle', 'negative', 'browser'].map(mode => {
+              const report = json(mode + '.json'), companion = json(mode + '.receipt.json');
+              return { mode, companion, report: report ? { success: report.success, numTotalTests: report.numTotalTests, numPassedTests: report.numPassedTests, numFailedTests: report.numFailedTests, numPendingTests: report.numPendingTests, numTodoTests: report.numTodoTests,
+                cases: (report.testResults ?? []).slice(0, 2).flatMap(file => (file.assertionResults ?? []).slice(0, 18).map(item => ({ title: String(item.title ?? '').slice(0, 512), status: item.status, failureMessages: (item.failureMessages ?? []).slice(0, 2).map(text => String(text).slice(0, 768)), metadata: item.meta?.traverse ?? null }))) } : null };
+            });
+            const tails = [];
+            if (run?.success !== true) for (const name of files.filter(name => /\.(?:stdout|stderr)\.log$/.test(name)).sort((a, b) => Number(a.includes('.stdout.')) - Number(b.includes('.stdout.')))) {
+              const value = data.get(name); if (value?.length) tails.push(name + ':\n' + value.subarray(Math.max(0, value.length - 2048)).toString('utf8'));
+            }
+            let tail = Buffer.from(tails.join('\n')).subarray(0, 16 * 1024).toString('utf8');
+            while (Buffer.byteLength(tail) > 16 * 1024) tail = tail.slice(0, -1);
+            const packet = { schemaVersion: 1, kind: 'traverse-active-consumer-receipt', sourceCommit: process.env.SOURCE_COMMIT, preparation: preparation ? { nodeVersion: preparation.nodeVersion, sourceFilesVerified: preparation.sourceFilesVerified, initialFilesVerified: preparation.initialFilesVerified, packageFilesVerified: preparation.packageFilesVerified, sdkArchiveSha256: preparation.sdkArchiveSha256, sdkArchiveBytes: preparation.sdkArchiveBytes } : null,
+              environment: environment ? { nodeVersion: environment.nodeVersion, platform: environment.platform, tools: environment.tools, sdkArchiveSha256: environment.sdk?.archiveSha256 } : null,
+              consumerRun: run, modes, parseIssues, lock, artifacts: digests, failureLogTails: tail };
+            let output = JSON.stringify(packet) + '\n';
+            if (Buffer.byteLength(output) > 128 * 1024) { packet.failureLogTails = ''; packet.failureTailsOmittedForOutputBound = true; output = JSON.stringify(packet) + '\n'; }
+            if (Buffer.byteLength(output) > 128 * 1024) throw new Error();
+            phase = 'emit'; process.stdout.write(output);
+          } catch {
+            process.stderr.write(JSON.stringify({ code: 'traverse_active_receipt_failed', phase }) + '\n'); process.exitCode = 1;
+          }
+          NODE
+      - name: Bound textual evidence before uploading
+        id: evidence
+        if: always() && steps.prepare.outcome == 'success'
+        run: |
+          node --input-type=module <<'NODE'
+          import { readdirSync, lstatSync } from 'node:fs';
+          import { resolve } from 'node:path';
+          const folder = resolve(process.env.TRAVERSE_CONSUMER_DIR, 'artifacts');
+          const entries = readdirSync(folder);
+          if (entries.length < 1 || entries.length > 40) throw new Error('invalid_artifact_inventory');
+          let bytes = 0;
+          for (const name of entries) {
+            const info = lstatSync(resolve(folder, name));
+            if (!/^[a-z0-9.-]+$/.test(name) || !info.isFile() || info.isSymbolicLink()) throw new Error('invalid_artifact');
+            bytes += info.size;
+          }
+          if (bytes > 3 * 1024 * 1024) throw new Error('artifact_budget_exceeded');
+          console.log(JSON.stringify({textFiles:entries.length,bytes}));
+          NODE
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always() && steps.evidence.outcome == 'success'
+        with:
+          name: traverse-consumer-${{ github.run_id }}
+          path: ${{ runner.temp }}/traverse-consumer-${{ github.run_id }}/artifacts/*
+          retention-days: 1
+          if-no-files-found: error
+      - name: Remove only the owned disposable consumer
+        if: always() && steps.prepare.outcome == 'success'
+        run: |
+          node --input-type=module <<'NODE'
+          import { lstatSync, realpathSync, rmSync } from 'node:fs';
+          import { isAbsolute, join } from 'node:path';
+          const temporary = process.env.RUNNER_TEMP, runId = process.env.GITHUB_RUN_ID;
+          if (!temporary || !isAbsolute(temporary) || !/^\d{1,24}$/.test(runId ?? '')) throw new Error('consumer_cleanup_ownership');
+          const base = realpathSync(temporary), expected = join(base, 'traverse-consumer-' + runId);
+          if (expected !== join(temporary, 'traverse-consumer-' + runId) || process.env.TRAVERSE_CONSUMER_DIR !== expected) throw new Error('consumer_cleanup_ownership');
+          const info = lstatSync(expected);
+          if (!info.isDirectory() || info.isSymbolicLink() || realpathSync(expected) !== expected) throw new Error('consumer_cleanup_ownership');
+          rmSync(expected, { recursive: true, force: false });
+          NODE
