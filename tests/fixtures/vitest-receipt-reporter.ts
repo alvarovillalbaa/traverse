@@ -26,13 +26,40 @@ export default class TraverseReceiptReporter implements Reporter {
       || !Array.isArray(unhandledErrors) || unhandledErrors.length > 1000
       || !['passed', 'failed', 'interrupted'].includes(reason)) throw new Error('traverse_receipt_invalid');
     this.emitted = true;
+    const timeoutEvidence: {
+      caseId: string; title: string; fullName: string; moduleId: string; state: string;
+      reportedTimeoutMs: number; message: string; errorCount: number;
+    }[] = [];
+    let observedCases = 0;
+    for (const module of modules) {
+      for (const testCase of module.children.allTests()) {
+        if (++observedCases > 32) throw new Error('traverse_receipt_invalid');
+        const result = testCase.result(), errors = result.errors ?? [];
+        for (const error of errors) {
+          const message = error.message;
+          if (typeof message !== 'string') continue;
+          const match = /^Test timed out in ([1-9][0-9]{0,5})ms\.\n/.exec(message);
+          if (!match) continue;
+          if (Buffer.byteLength(message) > 512 || timeoutEvidence.length >= 8
+            || testCase.id.length > 256 || testCase.name.length > 512 || testCase.fullName.length > 1024
+            || testCase.module.relativeModuleId.length > 512) throw new Error('traverse_receipt_invalid');
+          timeoutEvidence.push({
+            caseId: testCase.id, title: testCase.name, fullName: testCase.fullName,
+            moduleId: testCase.module.relativeModuleId.replaceAll('\\', '/'), state: result.state,
+            reportedTimeoutMs: Number(match[1]), message, errorCount: errors.length,
+          });
+        }
+      }
+    }
     const receipt = {
-      schemaVersion: 1, kind: 'traverse-vitest-run-receipt', runnerVersion: '4.0.16',
+      schemaVersion: 2, kind: 'traverse-vitest-run-receipt', runnerVersion: '4.0.16',
       completed: true, endReason: reason, moduleCount: modules.length,
-      unhandledErrorCount: unhandledErrors.length,
+      unhandledErrorCount: unhandledErrors.length, timeoutEvidence,
     };
+    const encoded = JSON.stringify(receipt) + '\n';
+    if (Buffer.byteLength(encoded) > 4096) throw new Error('traverse_receipt_invalid');
     try {
-      await writeFile(this.destination, JSON.stringify(receipt) + '\n', { flag: 'wx', mode: 0o600 });
+      await writeFile(this.destination, encoded, { flag: 'wx', mode: 0o600 });
     } catch { throw new Error('traverse_receipt_write_failed'); }
   }
 }

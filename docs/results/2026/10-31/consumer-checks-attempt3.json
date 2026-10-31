@@ -1,0 +1,542 @@
+{
+  "schemaVersion": 1,
+  "status": "failed",
+  "date": "2026-10-31",
+  "packetAttempt": 3,
+  "sourceCommit": "ec0a42de80ac6ced89e3cb01760cadcaff01cf3c",
+  "activationCommit": "80e71e6cd07a68e17f3e18f68526a3d6fa43c354",
+  "run": {
+    "id": 41239849875,
+    "attempt": 1,
+    "jobId": 124651303434,
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41239849875",
+    "status": "completed",
+    "conclusion": "failure",
+    "startedAt": "2026-10-31T20:38:31Z",
+    "updatedAt": "2026-10-31T20:39:01Z"
+  },
+  "preparation": {
+    "nodeVersion": "v24.21.0",
+    "sourceFilesVerified": 19,
+    "initialFilesVerified": 28,
+    "packageFilesVerified": 21,
+    "sdkArchiveSha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7",
+    "sdkArchiveBytes": 24497
+  },
+  "environment": {
+    "nodeVersion": "v24.21.0",
+    "platform": "linux",
+    "tools": {
+      "vitest": "4.0.16",
+      "playwright": "1.57.0",
+      "typescript": "5.9.3",
+      "@types/node": "24.10.1"
+    },
+    "sdkArchiveSha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7"
+  },
+  "typecheck": {
+    "status": "passed",
+    "exitCode": 0,
+    "stdoutBytes": 0,
+    "stderrBytes": 0
+  },
+  "runtimeCases": {
+    "expected": 17,
+    "observed": 9,
+    "verifiedAccepted": 3,
+    "lifecycle": {
+      "cases": 3,
+      "passed": 3,
+      "validator": "passed",
+      "exitCode": 0,
+      "companionCompleted": true,
+      "unhandledErrors": 0
+    },
+    "negative": {
+      "cases": 6,
+      "failed": 6,
+      "exitCode": 1,
+      "validator": "rejected",
+      "companionCompleted": true,
+      "unhandledErrors": 0
+    },
+    "browser": {
+      "cases": 8,
+      "status": "unrun"
+    }
+  },
+  "consumerVerdict": {
+    "success": false,
+    "errorCode": "validation_failed",
+    "validations": [
+      {
+        "schemaVersion": 1,
+        "kind": "traverse-vitest-acceptance",
+        "mode": "lifecycle",
+        "runnerVersion": "4.0.16",
+        "cases": 3,
+        "expectedHostFailures": 0,
+        "runnerExitCode": 0,
+        "unhandledErrorCount": 0,
+        "verified": true,
+        "reportSha256": "6398c8a788e903230b2819f64a8882790d9ca144b99c76aebb431327b423f70a",
+        "receiptSha256": "f8d342b074df947b2c730a5c0e23f9f9001b0aef5c8904e4e412c50e0af46e49"
+      }
+    ],
+    "cleanupErrors": []
+  },
+  "observations": [
+    {
+      "mode": "lifecycle",
+      "companion": {
+        "schemaVersion": 1,
+        "kind": "traverse-vitest-run-receipt",
+        "runnerVersion": "4.0.16",
+        "completed": true,
+        "endReason": "passed",
+        "moduleCount": 1,
+        "unhandledErrorCount": 0
+      },
+      "report": {
+        "success": true,
+        "numTotalTests": 3,
+        "numPassedTests": 3,
+        "numFailedTests": 0,
+        "numPendingTests": 0,
+        "numTodoTests": 0,
+        "cases": [
+          {
+            "title": "unused Traverse fixture remains lazy in the real runner",
+            "status": "passed",
+            "failureMessages": [],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "unused": true,
+              "factoryCalls": 0,
+              "closeCalls": 0,
+              "bodyEntered": true
+            }
+          },
+          {
+            "title": "real Vitest initializes the requested fixture and tears down an exact checked journey",
+            "status": "passed",
+            "failureMessages": [],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 1,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": false,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "pass",
+              "bodyErrorsAtEvidence": 0,
+              "lifecycle": "closed",
+              "finalCount": 1,
+              "stepCodes": [],
+              "events": [
+                "setup",
+                "body",
+                "open",
+                "perform",
+                "check",
+                "close",
+                "evidence"
+              ]
+            }
+          },
+          {
+            "title": "a second real Vitest test receives pristine independently owned app state",
+            "status": "passed",
+            "failureMessages": [],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 2,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": false,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "pass",
+              "bodyErrorsAtEvidence": 0,
+              "lifecycle": "closed",
+              "finalCount": 0,
+              "stepCodes": [],
+              "events": [
+                "setup",
+                "body",
+                "check",
+                "close",
+                "evidence"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "mode": "negative",
+      "companion": {
+        "schemaVersion": 1,
+        "kind": "traverse-vitest-run-receipt",
+        "runnerVersion": "4.0.16",
+        "completed": true,
+        "endReason": "failed",
+        "moduleCount": 1,
+        "unhandledErrorCount": 0
+      },
+      "report": {
+        "success": false,
+        "numTotalTests": 6,
+        "numPassedTests": 0,
+        "numFailedTests": 6,
+        "numPendingTests": 0,
+        "numTodoTests": 0,
+        "cases": [
+          {
+            "title": "recorded Vitest body failure survives successful Traverse teardown",
+            "status": "failed",
+            "failureMessages": [
+              "Error: AUTHORED_VITEST_BODY_FAILURE\n    at <consumer>/tests/integration/vitest-negative.test.ts:22:9\n    at <consumer>/node_modules/@vitest/runner/dist/index.js:181:39\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at <consumer>/node_modules/@vitest/runner/dist/index.js:915:20"
+            ],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 1,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": false,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "fail",
+              "bodyErrorsAtEvidence": 1,
+              "lifecycle": "closed",
+              "finalCount": 0,
+              "stepCodes": [],
+              "events": [
+                "setup",
+                "body",
+                "close",
+                "evidence"
+              ]
+            }
+          },
+          {
+            "title": "Traverse cleanup failure makes a successful Vitest body fail",
+            "status": "failed",
+            "failureMessages": [
+              "TraverseError: cleanup_failed\n    at <consumer>/node_modules/@alvarovillalbaa/traverse/src/session.js:36:48\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)"
+            ],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 1,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": false,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "pass",
+              "bodyErrorsAtEvidence": 0,
+              "lifecycle": "failed",
+              "finalCount": 0,
+              "stepCodes": [
+                "cleanup_failed"
+              ],
+              "events": [
+                "setup",
+                "body",
+                "close",
+                "evidence"
+              ]
+            }
+          },
+          {
+            "title": "Traverse evidence callback failure makes a successful Vitest body fail",
+            "status": "failed",
+            "failureMessages": [
+              "TraverseError: evidence_failed\n    at uiFixture (<consumer>/node_modules/@alvarovillalbaa/traverse/src/vitest.js:47:35)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at <consumer>/node_modules/@vitest/runner/dist/index.js:243:4\n    at callFixtureCleanup (<consumer>/node_modules/@vitest/runner/dist/index.js:133:3)\n    at runTest (<consumer>/node_modules/@vitest/runner/dist/index.js:1680:5)\n    at runSuite (<consumer>/node_modules/@vitest/runner/dist/index.js:1817:8)\n    at runFiles"
+            ],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 1,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": false,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "pass",
+              "bodyErrorsAtEvidence": 0,
+              "lifecycle": "closed",
+              "finalCount": 0,
+              "stepCodes": [],
+              "events": [
+                "setup",
+                "body",
+                "close",
+                "evidence"
+              ]
+            }
+          },
+          {
+            "title": "recorded body failure and Traverse cleanup failure both reach the Vitest result",
+            "status": "failed",
+            "failureMessages": [
+              "Error: AUTHORED_VITEST_COMBINED_BODY_FAILURE\n    at <consumer>/tests/integration/vitest-negative.test.ts:35:9\n    at <consumer>/node_modules/@vitest/runner/dist/index.js:181:39\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at <consumer>/node_modules/@vitest/runner/dist/index.js:915:20",
+              "TraverseError: cleanup_failed\n    at <consumer>/node_modules/@alvarovillalbaa/traverse/src/session.js:36:48\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)"
+            ],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 1,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": false,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "fail",
+              "bodyErrorsAtEvidence": 1,
+              "lifecycle": "failed",
+              "finalCount": 0,
+              "stepCodes": [
+                "cleanup_failed"
+              ],
+              "events": [
+                "setup",
+                "body",
+                "close",
+                "evidence"
+              ]
+            }
+          },
+          {
+            "title": "idle caller cancellation cannot become a passing Vitest teardown",
+            "status": "failed",
+            "failureMessages": [
+              "TraverseError: session_cancelled\n    at <consumer>/node_modules/@alvarovillalbaa/traverse/src/session.js:358:26\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)"
+            ],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 1,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": false,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "pass",
+              "bodyErrorsAtEvidence": 0,
+              "lifecycle": "cancelled",
+              "finalCount": 0,
+              "stepCodes": [],
+              "events": [
+                "setup",
+                "body",
+                "close",
+                "evidence"
+              ]
+            }
+          },
+          {
+            "title": "real Vitest timeout aborts the fixture signal and closes its owned driver",
+            "status": "failed",
+            "failureMessages": [
+              "Error: STACK_TRACE_ERROR\n    at task (<consumer>/node_modules/@vitest/runner/dist/index.js:796:27)\n    at Object.<anonymous> (<consumer>/node_modules/@vitest/runner/dist/index.js:823:16)\n    at Object.<anonymous> (<consumer>/node_modules/@vitest/runner/dist/index.js:615:28)\n    at Object.<anonymous> (<consumer>/node_modules/@vitest/runner/dist/index.js:1078:20)\n    at chain (<consumer>/node_modules/@vitest/runner/dist/chunk-tasks.js:9:14)\n    at <consumer>/tests/integrat",
+              "TraverseError: session_cancelled\n    at <consumer>/node_modules/@alvarovillalbaa/traverse/src/session.js:358:26"
+            ],
+            "metadata": {
+              "boundary": "authored-driver-real-vitest",
+              "instanceId": 1,
+              "factoryCalls": 1,
+              "closeCalls": 1,
+              "evidenceCalls": 1,
+              "bodyEntered": true,
+              "taskMatched": true,
+              "childSignalForwarded": true,
+              "hostSignalAborted": true,
+              "childAbortedAtEvidence": true,
+              "bodyStateAtEvidence": "fail",
+              "bodyErrorsAtEvidence": 1,
+              "lifecycle": "cancelled",
+              "finalCount": 0,
+              "stepCodes": [],
+              "events": [
+                "setup",
+                "body",
+                "close",
+                "evidence"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "mode": "browser",
+      "companion": null,
+      "report": null
+    }
+  ],
+  "diagnostic": {
+    "code": "traverse_vitest_result_invalid",
+    "scope": "The negative group was rejected; it is not accepted merely because its runner exited 1.",
+    "timeoutProjection": "The timeout case's first JSON failure message begins Error: STACK_TRACE_ERROR, while its metadata shows failed body, one body error, host signal aborted and cancelled session.",
+    "fullReportLimit": "The active stdout controller projects and truncates each failure message to 768 characters; these projections are not the complete original JSON report.",
+    "pinnedReporter": "Vitest 4.0.16 JSON failureMessages chooses error.stack before error.message; the timeout constructor preserves its real message while substituting a registration stack.",
+    "primarySources": [
+      "https://github.com/vitest-dev/vitest/blob/v4.0.16/packages/vitest/src/node/reporters/json.ts#L160",
+      "https://github.com/vitest-dev/vitest/blob/v4.0.16/packages/runner/src/context.ts#L220",
+      "https://github.com/vitest-dev/vitest/blob/v4.0.16/packages/vitest/src/node/reporters/reported-tasks.ts#L142"
+    ],
+    "noAssertionRelaxationApplied": true
+  },
+  "retainedLock": {
+    "path": "docs/results/2026/10-31/consumer-package-lock.json",
+    "bytes": 51942,
+    "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313",
+    "transportIdenticalToAttempt1": true,
+    "generatedBytesUnchanged": true
+  },
+  "sdkArchive": {
+    "bytes": 24497,
+    "sha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7",
+    "unchanged": true,
+    "packageFilesVerified": 21
+  },
+  "cleanup": {
+    "ownedConsumerDirectory": "removed successfully",
+    "artifactBounds": "passed",
+    "upload": "passed",
+    "browserLaunched": false,
+    "exampleServerStarted": false
+  },
+  "artifact": {
+    "id": 13057042020,
+    "name": "traverse-consumer-41239849875",
+    "zipBytes": 20523,
+    "providerSha256": "d44e0aabf0f6326ed09be906d4b2e8eee7699a6bff5458ca230f220b13925085",
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41239849875/artifacts/13057042020",
+    "expiresAt": "2026-11-01T20:38:57Z",
+    "files": [
+      {
+        "name": "consumer-environment.json",
+        "bytes": 2976,
+        "sha256": "b24674c515fb8e85ef220d91403984d2bf9c882d64b59306a46a2d94542bf658"
+      },
+      {
+        "name": "consumer-run.json",
+        "bytes": 4388,
+        "sha256": "eb659f7827e238383ff4f1d7bfaca278d26c15652d71fc28791917b85e36ca30"
+      },
+      {
+        "name": "lifecycle-validator.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "lifecycle-validator.stdout.log",
+        "bytes": 194,
+        "sha256": "11a1bce713b378d13106110efa69c51fba8b28f965d0df8d725eb0dac73c6c86"
+      },
+      {
+        "name": "lifecycle.json",
+        "bytes": 2430,
+        "sha256": "6398c8a788e903230b2819f64a8882790d9ca144b99c76aebb431327b423f70a"
+      },
+      {
+        "name": "lifecycle.receipt.json",
+        "bytes": 160,
+        "sha256": "f8d342b074df947b2c730a5c0e23f9f9001b0aef5c8904e4e412c50e0af46e49"
+      },
+      {
+        "name": "lifecycle.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "lifecycle.stdout.log",
+        "bytes": 102,
+        "sha256": "0a846deeacd4b1b87faa86a33be7e29810f03616a9c5b81c6a8332b7e84a3971"
+      },
+      {
+        "name": "negative-validator.stderr.log",
+        "bytes": 31,
+        "sha256": "9c947863add81fefe23b6fe021c13ded889e529c81b1e6b670b4f29abee36cb6"
+      },
+      {
+        "name": "negative-validator.stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "negative.json",
+        "bytes": 9745,
+        "sha256": "ecc7b733bfc347fc9c52a50d5673872aea3b4c03f763cb0cb0f0edb939ec23df"
+      },
+      {
+        "name": "negative.receipt.json",
+        "bytes": 160,
+        "sha256": "17047b0949d2ea611da03227821db086644ac1a084be818394812eb22ec0521f"
+      },
+      {
+        "name": "negative.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "negative.stdout.log",
+        "bytes": 101,
+        "sha256": "4b1ec82c4f1a1e4bffea99f6b563bd6b28e6f225fe40f28582d5d90b49b90194"
+      },
+      {
+        "name": "package-lock.json",
+        "bytes": 51942,
+        "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313"
+      },
+      {
+        "name": "preparation.json",
+        "bytes": 4447,
+        "sha256": "cc8fa9ab6b3b8dd61c92ae8205e50ac90fa3f81b89ffce0483f2b2df077c6b1e"
+      },
+      {
+        "name": "tsc.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "tsc.stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "transport": {
+    "connectorDecodedLogBytes": 94905,
+    "connectorDecodedLogSha256": "1c1f50fe508463411019e174f2a6b516ac7c46148c9f40a950589af7a513dc09",
+    "extractedPacketBytes": 30195,
+    "extractedPacketSha256": "5aad23d2303c024f8c7bc5985f15b8215e70e96ecf79fb3a525e113825616a99",
+    "projectionNormalization": "Public ephemeral consumer paths replaced by <consumer>; raw transport hashes refer to the unmodified connector data."
+  },
+  "limits": [
+    "Only the three lifecycle cases have a successful existing validator result. The six negative outcomes are observed but their group remains rejected, and all eight browser cases are unrun.",
+    "No generic stack marker is accepted as proof of a timeout. A future repair requires actual runner-message evidence bound to the exact timeout case.",
+    "No source fix, local install/test, browser launch, example server, model/provider call, production data, real account or paid enrollment was added while recording this failure."
+  ]
+}

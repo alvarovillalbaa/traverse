@@ -14,7 +14,7 @@ const negative = [
   { title: 'Traverse evidence callback failure makes a successful Vitest body fail', errors: [/\bevidence_failed\b/], bodyErrors: 0, bodyState: 'pass', lifecycle: 'closed', stepCodes: [] },
   { title: 'recorded body failure and Traverse cleanup failure both reach the Vitest result', errors: [/AUTHORED_VITEST_COMBINED_BODY_FAILURE/, /\bcleanup_failed\b/], bodyErrors: 1, bodyState: 'fail', lifecycle: 'failed', stepCodes: ['cleanup_failed'] },
   { title: 'idle caller cancellation cannot become a passing Vitest teardown', errors: [/\bsession_cancelled\b/], bodyErrors: 0, bodyState: 'pass', lifecycle: 'cancelled', stepCodes: [] },
-  { title: 'real Vitest timeout aborts the fixture signal and closes its owned driver', errors: [/Test timed out in 250ms/, /\bsession_cancelled\b/], bodyErrors: 1, bodyState: 'fail', lifecycle: 'cancelled', stepCodes: [], hostSignalAborted: true },
+  { title: 'real Vitest timeout aborts the fixture signal and closes its owned driver', errors: [/\bsession_cancelled\b/], failureMessages: 2, hostTimeout: true, bodyErrors: 1, bodyState: 'fail', lifecycle: 'cancelled', stepCodes: [], hostSignalAborted: true },
 ];
 const browser = [
   'Vitest fixture fills and submits exact controls through public exports',
@@ -48,11 +48,27 @@ async function boundedJson(path, limit, privateFile = false) {
 }
 function verifyReceipt(value, expected) {
   requireValue(object(value) && equal(Object.keys(value).sort(), [
-    'schemaVersion', 'kind', 'runnerVersion', 'completed', 'endReason', 'moduleCount', 'unhandledErrorCount',
+    'schemaVersion', 'kind', 'runnerVersion', 'completed', 'endReason', 'moduleCount', 'unhandledErrorCount', 'timeoutEvidence',
   ].sort()));
-  requireValue(value.schemaVersion === 1 && value.kind === 'traverse-vitest-run-receipt'
+  requireValue(value.schemaVersion === 2 && value.kind === 'traverse-vitest-run-receipt'
     && value.runnerVersion === '4.0.16' && value.completed === true && value.moduleCount === 1
-    && value.unhandledErrorCount === 0 && value.endReason === (expected.failed ? 'failed' : 'passed'));
+    && value.unhandledErrorCount === 0 && value.endReason === (expected.failed ? 'failed' : 'passed')
+    && Array.isArray(value.timeoutEvidence));
+  if (!expected.failed) {
+    requireValue(value.timeoutEvidence.length === 0);
+    return null;
+  }
+  requireValue(value.timeoutEvidence.length === 1);
+  const evidence = value.timeoutEvidence[0], timeout = expected.cases.find(entry => entry.hostTimeout);
+  requireValue(timeout && object(evidence) && equal(Object.keys(evidence).sort(), [
+    'caseId', 'title', 'fullName', 'moduleId', 'state', 'reportedTimeoutMs', 'message', 'errorCount',
+  ].sort()));
+  requireValue(typeof evidence.caseId === 'string' && evidence.caseId.length > 0 && evidence.caseId.length <= 256
+    && !/[\u0000-\u001f\u007f]/u.test(evidence.caseId)
+    && evidence.moduleId === expected.file && evidence.title === timeout.title && evidence.fullName === timeout.title
+    && evidence.state === 'failed' && evidence.errorCount === 2 && evidence.reportedTimeoutMs === 250
+    && evidence.message === 'Test timed out in 250ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".');
+  return evidence;
 }
 function verifyAuthoredMeta(value, expected, isNegative) {
   requireValue(object(value) && value.boundary === BOUNDARY && value.bodyEntered === true);
@@ -77,7 +93,7 @@ function verifyAuthoredMeta(value, expected, isNegative) {
     && equal(value.stepCodes, isNegative ? expected.stepCodes : [])
     && equal(value.events, isNegative ? ['setup', 'body', 'close', 'evidence'] : expected.events));
 }
-function verifyReport(report, expected, mode) {
+function verifyReport(report, expected, mode, timeoutEvidence) {
   requireValue(object(report) && report.success === !expected.failed && Array.isArray(report.testResults)
     && report.testResults.length === 1);
   const counters = ['numFailedTests', 'numFailedTestSuites', 'numPassedTests', 'numPassedTestSuites',
@@ -105,11 +121,19 @@ function verifyReport(report, expected, mode) {
       && result.fullName === [...expected.ancestors, result.title].join(' ')
       && result.status === (expected.failed ? 'failed' : 'passed') && Array.isArray(result.failureMessages));
     if (expected.failed) {
-      requireValue(result.failureMessages.length === entry.errors.length
-        && result.failureMessages.every(message => typeof message === 'string' && message.length <= 262144
-          && entry.errors.some(pattern => pattern.test(message))
-          && !/PRIVATE_TRAVERSE_(CLEANUP|EVIDENCE)_DETAIL/.test(message))
-        && entry.errors.every(pattern => result.failureMessages.filter(message => pattern.test(message)).length === 1));
+      if (entry.hostTimeout) {
+        requireValue(timeoutEvidence && timeoutEvidence.title === result.title
+          && result.failureMessages.length === entry.failureMessages
+          && result.failureMessages.every(message => typeof message === 'string' && message.length <= 262144
+            && !/PRIVATE_TRAVERSE_(CLEANUP|EVIDENCE)_DETAIL/.test(message))
+          && result.failureMessages.filter(message => entry.errors[0].test(message)).length === 1);
+      } else {
+        requireValue(result.failureMessages.length === entry.errors.length
+          && result.failureMessages.every(message => typeof message === 'string' && message.length <= 262144
+            && entry.errors.some(pattern => pattern.test(message))
+            && !/PRIVATE_TRAVERSE_(CLEANUP|EVIDENCE)_DETAIL/.test(message))
+          && entry.errors.every(pattern => result.failureMessages.filter(message => pattern.test(message)).length === 1));
+      }
     } else requireValue(result.failureMessages.length === 0);
     if (mode !== 'browser') {
       requireValue(object(result.meta));
@@ -131,8 +155,8 @@ try {
   requireValue(exitCode === (expected.failed ? 1 : 0));
   const report = await boundedJson(reportPath, 4 * 1024 * 1024);
   const receipt = await boundedJson(receiptPath, 4096, true);
-  verifyReceipt(receipt, expected);
-  verifyReport(report, expected, mode);
+  const timeoutEvidence = verifyReceipt(receipt, expected);
+  verifyReport(report, expected, mode, timeoutEvidence);
   process.stdout.write(JSON.stringify({
     schemaVersion: 1, kind: 'traverse-vitest-acceptance', mode, runnerVersion: '4.0.16',
     cases: expected.cases.length, expectedHostFailures: expected.failed ? expected.cases.length : 0,
