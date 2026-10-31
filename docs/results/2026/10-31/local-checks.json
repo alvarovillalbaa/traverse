@@ -1,0 +1,537 @@
+{
+  "schemaVersion": "traverse.local-checks.v1",
+  "date": "2026-10-31",
+  "authorization": "Owner broad all-work approval; root explicitly authorized the exact prepared45-case local Node-only scope.",
+  "repository": "alvarovillalbaa/traverse",
+  "sourceCommit": "abd36915010dc2a3f932454f00f0665e39db11ea",
+  "node": {
+    "executable": "node",
+    "executableDisplay": "Portable basename for publication; the actual existing binary version was observed as 26.8.2.",
+    "version": "v26.8.2",
+    "proposedProfile": "24.21.0",
+    "profileDifference": "Proposed Node 24 path absent; existing Node 26.8.2 satisfies package engines >=24. No installation."
+  },
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "--test-concurrency=1",
+    "--test-timeout=10000",
+    "tests/unit/session.test.mjs",
+    "tests/unit/playwright.test.mjs",
+    "tests/unit/vitest.test.mjs"
+  ],
+  "reporterDifference": "Explicit TAP formatter only; exactly the three prepared test files.",
+  "limits": {
+    "wallSeconds": 60,
+    "termGraceSeconds": 3,
+    "stdoutBytes": 262144,
+    "stderrBytes": 65536,
+    "perTestMilliseconds": 10000,
+    "environment": {
+      "TZ": "UTC"
+    }
+  },
+  "childExitCode": 0,
+  "stopReason": null,
+  "signals": [],
+  "elapsedSeconds": 0.595,
+  "totals": {
+    "tests": 45,
+    "suites": 0,
+    "pass": 45,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "plans": [
+    45
+  ],
+  "caseNamesMatchSealedScope": true,
+  "cases": [
+    {
+      "index": 1,
+      "name": "Playwright adapter drives exact native locators and preserves explicit operation timeouts",
+      "status": "passed"
+    },
+    {
+      "index": 2,
+      "name": "explicit navigation rejects foreign origins and credentials and detects redirects after navigation was attempted",
+      "status": "passed"
+    },
+    {
+      "index": 3,
+      "name": "ambiguous or absent action targets never dispatch a native click",
+      "status": "passed"
+    },
+    {
+      "index": 4,
+      "name": "deterministic checks return observed booleans and count zero without inventing elements",
+      "status": "passed"
+    },
+    {
+      "index": 5,
+      "name": "unsupported targets keys and oversized fills fail before native interaction",
+      "status": "passed"
+    },
+    {
+      "index": 6,
+      "name": "observation reads only body ARIA and rejects incomplete oversized UTF-8 content",
+      "status": "passed"
+    },
+    {
+      "index": 7,
+      "name": "cancelled setup closes a late context and never touches the supplied browser",
+      "status": "passed"
+    },
+    {
+      "index": 8,
+      "name": "caller cancellation closes an in-flight owned context and fences late native effects",
+      "status": "passed"
+    },
+    {
+      "index": 9,
+      "name": "a setup deadline closes a context whose page promise completes too late",
+      "status": "passed"
+    },
+    {
+      "index": 10,
+      "name": "native failures and cleanup failures expose finite codes rather than private driver messages",
+      "status": "passed"
+    },
+    {
+      "index": 11,
+      "name": "closing one adapter is idempotent and leaves another context and consumer browser usable",
+      "status": "passed"
+    },
+    {
+      "index": 12,
+      "name": "locators are inert and exact deterministic actions change independently observed app state",
+      "status": "passed"
+    },
+    {
+      "index": 13,
+      "name": "invalid options fail before constructing a driver",
+      "status": "passed"
+    },
+    {
+      "index": 14,
+      "name": "executor actions return fresh bounded observations for a genuinely sequential journey",
+      "status": "passed"
+    },
+    {
+      "index": 15,
+      "name": "an absent executor reports setup required instead of pretending a semantic step passed",
+      "status": "passed"
+    },
+    {
+      "index": 16,
+      "name": "unknown blocked or mode-inappropriate executor outcomes fail closed",
+      "status": "passed"
+    },
+    {
+      "index": 17,
+      "name": "semantic assertions always execute live and failed assertions remain failed steps",
+      "status": "passed"
+    },
+    {
+      "index": 18,
+      "name": "assertion mode cannot mutate even when an executor catches the attempted action error",
+      "status": "passed"
+    },
+    {
+      "index": 19,
+      "name": "concurrent operations on one session are rejected rather than silently queued",
+      "status": "passed"
+    },
+    {
+      "index": 20,
+      "name": "concurrent executor actions cannot consume a second action or hide their failure",
+      "status": "passed"
+    },
+    {
+      "index": 21,
+      "name": "an executor cannot report done while one of its owned actions is still pending",
+      "status": "passed"
+    },
+    {
+      "index": 22,
+      "name": "manual and executor actions share one action budget without extra dispatch",
+      "status": "passed"
+    },
+    {
+      "index": 23,
+      "name": "agent action and assertion calls share an explicit agent-step budget",
+      "status": "passed"
+    },
+    {
+      "index": 24,
+      "name": "cancelled setup closes a driver that arrives later and never opens a usable session",
+      "status": "passed"
+    },
+    {
+      "index": 25,
+      "name": "setup has an owned deadline and a late driver is still cleaned exactly once",
+      "status": "passed"
+    },
+    {
+      "index": 26,
+      "name": "session and step deadlines fence late executor results and their saved action callbacks",
+      "status": "passed"
+    },
+    {
+      "index": 27,
+      "name": "a synchronous executor cannot acknowledge success after blocking past its monotonic deadline",
+      "status": "passed"
+    },
+    {
+      "index": 28,
+      "name": "caller cancellation stops a pending executor and prevents its later action dispatch",
+      "status": "passed"
+    },
+    {
+      "index": 29,
+      "name": "closing pending work cancels it reports incompleteness and closes only once",
+      "status": "passed"
+    },
+    {
+      "index": 30,
+      "name": "idle cancellation and session expiry remain terminal failures at every close",
+      "status": "passed"
+    },
+    {
+      "index": 31,
+      "name": "cleanup failures and deadlines remain finite visible outcomes",
+      "status": "passed"
+    },
+    {
+      "index": 32,
+      "name": "evidence is detached frozen and redacted while preserving a failed awaited step",
+      "status": "passed"
+    },
+    {
+      "index": 33,
+      "name": "agent success semantic verdicts value checks and close do not qualify replay records",
+      "status": "passed"
+    },
+    {
+      "index": 34,
+      "name": "a semantic assertion preserves pending actions but only a later deterministic check records them",
+      "status": "passed"
+    },
+    {
+      "index": 35,
+      "name": "an already true unrelated check cannot cache an action when the observed UI did not change",
+      "status": "passed"
+    },
+    {
+      "index": 36,
+      "name": "a later successful locator check enables replay in a fresh journey without an executor",
+      "status": "passed"
+    },
+    {
+      "index": 37,
+      "name": "manual intervention or a fill prevents pending actions from becoming replayable",
+      "status": "passed"
+    },
+    {
+      "index": 38,
+      "name": "replay divergence after dispatch cannot repeat the action through a live executor",
+      "status": "passed"
+    },
+    {
+      "index": 39,
+      "name": "replay is bound to explicit scope and starting UI while assertions remain live",
+      "status": "passed"
+    },
+    {
+      "index": 40,
+      "name": "exact scope goal and UI strings distinguish isolated UTF-16 units from Unicode replacement characters",
+      "status": "passed"
+    },
+    {
+      "index": 41,
+      "name": "the actual Vitest fixture lazily owns setup use teardown and safe host metadata",
+      "status": "passed"
+    },
+    {
+      "index": 42,
+      "name": "direct body failures survive cleanup and recorded Vitest failures remain runner owned",
+      "status": "passed"
+    },
+    {
+      "index": 43,
+      "name": "cleanup failure after a successful body remains visible and excludes raw driver errors",
+      "status": "passed"
+    },
+    {
+      "index": 44,
+      "name": "body cleanup and evidence callback failures are all preserved without replacing the body verdict",
+      "status": "passed"
+    },
+    {
+      "index": 45,
+      "name": "an evidence callback failure is visible after cleanup and caller cancellation reaches setup",
+      "status": "passed"
+    }
+  ],
+  "allChecksPassed": true,
+  "sourceGuard": {
+    "sealPath": "docs/results/2026/10-28/source-fingerprint.json",
+    "sealSha256": "ee74cc843d9dd09b57612152fcb0d92b13e2d75d6c011dad055ef625e065a500",
+    "sealedInputs": 28,
+    "before": {
+      ".gitignore": {
+        "sha256": "a19c67c98c194d71c005d9b7d19f204c2ef2909b6d78263c75b0406814cf1d18",
+        "mode": "0o644"
+      },
+      "AGENTS.md": {
+        "sha256": "5b45de4c6efcf2ed8d67a8825705a73eb2718adfaf4480a5946360179f6a7a5a",
+        "mode": "0o644"
+      },
+      "LICENSE": {
+        "sha256": "6e3ae862a0f98e9f377f98f71fd86160932dad7186416f5509a335703c6fe3b5",
+        "mode": "0o644"
+      },
+      "README.md": {
+        "sha256": "fd6e0ecda0a3ff769f4bd7a0d153858588969d4d27155b7ac5ab0041749f88e8",
+        "mode": "0o644"
+      },
+      "docs/acceptance.md": {
+        "sha256": "f0963b31cc6c6470c5eda410691e2874a5b6b510303121ffca46452a642f93ed",
+        "mode": "0o644"
+      },
+      "docs/architecture.md": {
+        "sha256": "e9b1b868e275de1d5e72922efabf4482c4390a37d4eb9e463e3d0b5a510e8a6b",
+        "mode": "0o644"
+      },
+      "docs/proposals/local-checks.md": {
+        "sha256": "7e192a2389c611098e3d7bb15dcefab50e9082f1970d250a6ec80ecc4c119469",
+        "mode": "0o644"
+      },
+      "docs/references.md": {
+        "sha256": "962c531faa227dc992a9d29d7eacde68043473e88c39d6c64c7c3f9bcd810932",
+        "mode": "0o644"
+      },
+      "docs/spec.md": {
+        "sha256": "535430ee3858dba1b520aef16621e414a999d06caee5d08e5bc0749cf0e4bedb",
+        "mode": "0o644"
+      },
+      "examples/app/index.html": {
+        "sha256": "8cfbef4dcc1bc2ff164ff46b2ed84bf900fd738c6ad299923de2ff066ef8000f",
+        "mode": "0o644"
+      },
+      "examples/journeys.test.ts": {
+        "sha256": "39bd320b7e16dab72d48d4670fd8d359f0d2bd7e9dcf7909df85a9b8e92e8709",
+        "mode": "0o644"
+      },
+      "examples/server.mjs": {
+        "sha256": "b739f6313cc934d4a0fdf961348596dc63191a6abb85d42d76e07129e5491e72",
+        "mode": "0o644"
+      },
+      "package.json": {
+        "sha256": "3c245bc988e42a3cd337ea664f4aff1a59f1c73ac221258da91cccb566b7bc1a",
+        "mode": "0o644"
+      },
+      "scripts/check.mjs": {
+        "sha256": "90c2da2e653fadc67d45f83951b786acd004e30e3ed8e36d2135a13af2486eb7",
+        "mode": "0o644"
+      },
+      "src/index.js": {
+        "sha256": "9a53ecd8fe678fe62264fb26d0d0195a3f9261c101fc7ff9c62e7d5d8316b1dd",
+        "mode": "0o644"
+      },
+      "src/playwright.js": {
+        "sha256": "5aaede045ff3f4d021504f4cd40bc4df92366fdd82d04656e546cb438bf09b2f",
+        "mode": "0o644"
+      },
+      "src/protocol.js": {
+        "sha256": "2a026c15fdd081942437d6a5b91de7c94189f316e91d1f0845d7b1a00e8d47dd",
+        "mode": "0o644"
+      },
+      "src/replay.js": {
+        "sha256": "a26c78523cfbef6c1fa23ef6d081672a12915b230df560117b4c865037594e05",
+        "mode": "0o644"
+      },
+      "src/session.js": {
+        "sha256": "94100e8617b1edf8c61336a3aefecba59d52a2f635b7aa7f7dd01d2bc73094d1",
+        "mode": "0o644"
+      },
+      "src/vitest.js": {
+        "sha256": "d5e233976f7c3cb05b7edd01561ab2f8516a31a6a4d420f5234e3a88188fc427",
+        "mode": "0o644"
+      },
+      "tests/helpers/authored-app.mjs": {
+        "sha256": "7e5aab076b82d1fa2a2887e8e6d437c80959816486958b8cea093dbb16107c60",
+        "mode": "0o644"
+      },
+      "tests/helpers/authored-playwright.mjs": {
+        "sha256": "b472ac823303d920af119812b7807ed5a0a9aeff38454181fc4f6c100f6bed87",
+        "mode": "0o644"
+      },
+      "tests/unit/playwright.test.mjs": {
+        "sha256": "45ff1cc49772fdaa41d89e20f6e5a483b3d83b524d42b3ca4def37bc6089abb2",
+        "mode": "0o644"
+      },
+      "tests/unit/session.test.mjs": {
+        "sha256": "a3a06d748be65fa46227e58917faa779b2d740e78f8b26d3c5a0304ccab48210",
+        "mode": "0o644"
+      },
+      "tests/unit/vitest.test.mjs": {
+        "sha256": "868e4e1b21143616448be7d7d01a201268be2dc978043370e64689d252f6e328",
+        "mode": "0o644"
+      },
+      "types/index.d.ts": {
+        "sha256": "7f0decf99605a1e1124424360d8af0dc6f65a161e87be72013e298437203a3b6",
+        "mode": "0o644"
+      },
+      "types/playwright.d.ts": {
+        "sha256": "eea9033da2940ddb89933a16ecc367196573fb5e4d5c340ec1bbd4336bedcfc6",
+        "mode": "0o644"
+      },
+      "types/vitest.d.ts": {
+        "sha256": "0149869ff1514b7a7d1e39f3bac9b4eeffcae60f1304aa61a4f60b44206216af",
+        "mode": "0o644"
+      }
+    },
+    "after": {
+      ".gitignore": {
+        "sha256": "a19c67c98c194d71c005d9b7d19f204c2ef2909b6d78263c75b0406814cf1d18",
+        "mode": "0o644"
+      },
+      "AGENTS.md": {
+        "sha256": "5b45de4c6efcf2ed8d67a8825705a73eb2718adfaf4480a5946360179f6a7a5a",
+        "mode": "0o644"
+      },
+      "LICENSE": {
+        "sha256": "6e3ae862a0f98e9f377f98f71fd86160932dad7186416f5509a335703c6fe3b5",
+        "mode": "0o644"
+      },
+      "README.md": {
+        "sha256": "fd6e0ecda0a3ff769f4bd7a0d153858588969d4d27155b7ac5ab0041749f88e8",
+        "mode": "0o644"
+      },
+      "docs/acceptance.md": {
+        "sha256": "f0963b31cc6c6470c5eda410691e2874a5b6b510303121ffca46452a642f93ed",
+        "mode": "0o644"
+      },
+      "docs/architecture.md": {
+        "sha256": "e9b1b868e275de1d5e72922efabf4482c4390a37d4eb9e463e3d0b5a510e8a6b",
+        "mode": "0o644"
+      },
+      "docs/proposals/local-checks.md": {
+        "sha256": "7e192a2389c611098e3d7bb15dcefab50e9082f1970d250a6ec80ecc4c119469",
+        "mode": "0o644"
+      },
+      "docs/references.md": {
+        "sha256": "962c531faa227dc992a9d29d7eacde68043473e88c39d6c64c7c3f9bcd810932",
+        "mode": "0o644"
+      },
+      "docs/spec.md": {
+        "sha256": "535430ee3858dba1b520aef16621e414a999d06caee5d08e5bc0749cf0e4bedb",
+        "mode": "0o644"
+      },
+      "examples/app/index.html": {
+        "sha256": "8cfbef4dcc1bc2ff164ff46b2ed84bf900fd738c6ad299923de2ff066ef8000f",
+        "mode": "0o644"
+      },
+      "examples/journeys.test.ts": {
+        "sha256": "39bd320b7e16dab72d48d4670fd8d359f0d2bd7e9dcf7909df85a9b8e92e8709",
+        "mode": "0o644"
+      },
+      "examples/server.mjs": {
+        "sha256": "b739f6313cc934d4a0fdf961348596dc63191a6abb85d42d76e07129e5491e72",
+        "mode": "0o644"
+      },
+      "package.json": {
+        "sha256": "3c245bc988e42a3cd337ea664f4aff1a59f1c73ac221258da91cccb566b7bc1a",
+        "mode": "0o644"
+      },
+      "scripts/check.mjs": {
+        "sha256": "90c2da2e653fadc67d45f83951b786acd004e30e3ed8e36d2135a13af2486eb7",
+        "mode": "0o644"
+      },
+      "src/index.js": {
+        "sha256": "9a53ecd8fe678fe62264fb26d0d0195a3f9261c101fc7ff9c62e7d5d8316b1dd",
+        "mode": "0o644"
+      },
+      "src/playwright.js": {
+        "sha256": "5aaede045ff3f4d021504f4cd40bc4df92366fdd82d04656e546cb438bf09b2f",
+        "mode": "0o644"
+      },
+      "src/protocol.js": {
+        "sha256": "2a026c15fdd081942437d6a5b91de7c94189f316e91d1f0845d7b1a00e8d47dd",
+        "mode": "0o644"
+      },
+      "src/replay.js": {
+        "sha256": "a26c78523cfbef6c1fa23ef6d081672a12915b230df560117b4c865037594e05",
+        "mode": "0o644"
+      },
+      "src/session.js": {
+        "sha256": "94100e8617b1edf8c61336a3aefecba59d52a2f635b7aa7f7dd01d2bc73094d1",
+        "mode": "0o644"
+      },
+      "src/vitest.js": {
+        "sha256": "d5e233976f7c3cb05b7edd01561ab2f8516a31a6a4d420f5234e3a88188fc427",
+        "mode": "0o644"
+      },
+      "tests/helpers/authored-app.mjs": {
+        "sha256": "7e5aab076b82d1fa2a2887e8e6d437c80959816486958b8cea093dbb16107c60",
+        "mode": "0o644"
+      },
+      "tests/helpers/authored-playwright.mjs": {
+        "sha256": "b472ac823303d920af119812b7807ed5a0a9aeff38454181fc4f6c100f6bed87",
+        "mode": "0o644"
+      },
+      "tests/unit/playwright.test.mjs": {
+        "sha256": "45ff1cc49772fdaa41d89e20f6e5a483b3d83b524d42b3ca4def37bc6089abb2",
+        "mode": "0o644"
+      },
+      "tests/unit/session.test.mjs": {
+        "sha256": "a3a06d748be65fa46227e58917faa779b2d740e78f8b26d3c5a0304ccab48210",
+        "mode": "0o644"
+      },
+      "tests/unit/vitest.test.mjs": {
+        "sha256": "868e4e1b21143616448be7d7d01a201268be2dc978043370e64689d252f6e328",
+        "mode": "0o644"
+      },
+      "types/index.d.ts": {
+        "sha256": "7f0decf99605a1e1124424360d8af0dc6f65a161e87be72013e298437203a3b6",
+        "mode": "0o644"
+      },
+      "types/playwright.d.ts": {
+        "sha256": "eea9033da2940ddb89933a16ecc367196573fb5e4d5c340ec1bbd4336bedcfc6",
+        "mode": "0o644"
+      },
+      "types/vitest.d.ts": {
+        "sha256": "0149869ff1514b7a7d1e39f3bac9b4eeffcae60f1304aa61a4f60b44206216af",
+        "mode": "0o644"
+      }
+    },
+    "headAfter": "abd36915010dc2a3f932454f00f0665e39db11ea",
+    "statusBeforeReceipt": "",
+    "unchanged": true
+  },
+  "stdout": {
+    "bytes": 10705,
+    "sha256": "bd101645c4bfd0b1ed2ccd94ecf8418c74f285799e00e2b8015b43078071bcee",
+    "text": "TAP version 13\n# Subtest: Playwright adapter drives exact native locators and preserves explicit operation timeouts\nok 1 - Playwright adapter drives exact native locators and preserves explicit operation timeouts\n  ---\n  duration_ms: 5.783459\n  type: 'test'\n  ...\n# Subtest: explicit navigation rejects foreign origins and credentials and detects redirects after navigation was attempted\nok 2 - explicit navigation rejects foreign origins and credentials and detects redirects after navigation was attempted\n  ---\n  duration_ms: 0.536208\n  type: 'test'\n  ...\n# Subtest: ambiguous or absent action targets never dispatch a native click\nok 3 - ambiguous or absent action targets never dispatch a native click\n  ---\n  duration_ms: 0.483834\n  type: 'test'\n  ...\n# Subtest: deterministic checks return observed booleans and count zero without inventing elements\nok 4 - deterministic checks return observed booleans and count zero without inventing elements\n  ---\n  duration_ms: 46.60975\n  type: 'test'\n  ...\n# Subtest: unsupported targets keys and oversized fills fail before native interaction\nok 5 - unsupported targets keys and oversized fills fail before native interaction\n  ---\n  duration_ms: 0.47725\n  type: 'test'\n  ...\n# Subtest: observation reads only body ARIA and rejects incomplete oversized UTF-8 content\nok 6 - observation reads only body ARIA and rejects incomplete oversized UTF-8 content\n  ---\n  duration_ms: 0.423792\n  type: 'test'\n  ...\n# Subtest: cancelled setup closes a late context and never touches the supplied browser\nok 7 - cancelled setup closes a late context and never touches the supplied browser\n  ---\n  duration_ms: 0.7405\n  type: 'test'\n  ...\n# Subtest: caller cancellation closes an in-flight owned context and fences late native effects\nok 8 - caller cancellation closes an in-flight owned context and fences late native effects\n  ---\n  duration_ms: 1.132125\n  type: 'test'\n  ...\n# Subtest: a setup deadline closes a context whose page promise completes too late\nok 9 - a setup deadline closes a context whose page promise completes too late\n  ---\n  duration_ms: 21.704583\n  type: 'test'\n  ...\n# Subtest: native failures and cleanup failures expose finite codes rather than private driver messages\nok 10 - native failures and cleanup failures expose finite codes rather than private driver messages\n  ---\n  duration_ms: 0.398334\n  type: 'test'\n  ...\n# Subtest: closing one adapter is idempotent and leaves another context and consumer browser usable\nok 11 - closing one adapter is idempotent and leaves another context and consumer browser usable\n  ---\n  duration_ms: 0.227667\n  type: 'test'\n  ...\n# Subtest: locators are inert and exact deterministic actions change independently observed app state\nok 12 - locators are inert and exact deterministic actions change independently observed app state\n  ---\n  duration_ms: 3.337458\n  type: 'test'\n  ...\n# Subtest: invalid options fail before constructing a driver\nok 13 - invalid options fail before constructing a driver\n  ---\n  duration_ms: 0.24425\n  type: 'test'\n  ...\n# Subtest: executor actions return fresh bounded observations for a genuinely sequential journey\nok 14 - executor actions return fresh bounded observations for a genuinely sequential journey\n  ---\n  duration_ms: 0.642916\n  type: 'test'\n  ...\n# Subtest: an absent executor reports setup required instead of pretending a semantic step passed\nok 15 - an absent executor reports setup required instead of pretending a semantic step passed\n  ---\n  duration_ms: 0.270833\n  type: 'test'\n  ...\n# Subtest: unknown blocked or mode-inappropriate executor outcomes fail closed\nok 16 - unknown blocked or mode-inappropriate executor outcomes fail closed\n  ---\n  duration_ms: 0.545334\n  type: 'test'\n  ...\n# Subtest: semantic assertions always execute live and failed assertions remain failed steps\nok 17 - semantic assertions always execute live and failed assertions remain failed steps\n  ---\n  duration_ms: 0.235458\n  type: 'test'\n  ...\n# Subtest: assertion mode cannot mutate even when an executor catches the attempted action error\nok 18 - assertion mode cannot mutate even when an executor catches the attempted action error\n  ---\n  duration_ms: 0.184792\n  type: 'test'\n  ...\n# Subtest: concurrent operations on one session are rejected rather than silently queued\nok 19 - concurrent operations on one session are rejected rather than silently queued\n  ---\n  duration_ms: 0.177375\n  type: 'test'\n  ...\n# Subtest: concurrent executor actions cannot consume a second action or hide their failure\nok 20 - concurrent executor actions cannot consume a second action or hide their failure\n  ---\n  duration_ms: 0.24925\n  type: 'test'\n  ...\n# Subtest: an executor cannot report done while one of its owned actions is still pending\nok 21 - an executor cannot report done while one of its owned actions is still pending\n  ---\n  duration_ms: 3.103917\n  type: 'test'\n  ...\n# Subtest: manual and executor actions share one action budget without extra dispatch\nok 22 - manual and executor actions share one action budget without extra dispatch\n  ---\n  duration_ms: 0.318875\n  type: 'test'\n  ...\n# Subtest: agent action and assertion calls share an explicit agent-step budget\nok 23 - agent action and assertion calls share an explicit agent-step budget\n  ---\n  duration_ms: 0.160917\n  type: 'test'\n  ...\n# Subtest: cancelled setup closes a driver that arrives later and never opens a usable session\nok 24 - cancelled setup closes a driver that arrives later and never opens a usable session\n  ---\n  duration_ms: 0.432125\n  type: 'test'\n  ...\n# Subtest: setup has an owned deadline and a late driver is still cleaned exactly once\nok 25 - setup has an owned deadline and a late driver is still cleaned exactly once\n  ---\n  duration_ms: 22.353042\n  type: 'test'\n  ...\n# Subtest: session and step deadlines fence late executor results and their saved action callbacks\nok 26 - session and step deadlines fence late executor results and their saved action callbacks\n  ---\n  duration_ms: 43.857541\n  type: 'test'\n  ...\n# Subtest: a synchronous executor cannot acknowledge success after blocking past its monotonic deadline\nok 27 - a synchronous executor cannot acknowledge success after blocking past its monotonic deadline\n  ---\n  duration_ms: 25.609\n  type: 'test'\n  ...\n# Subtest: caller cancellation stops a pending executor and prevents its later action dispatch\nok 28 - caller cancellation stops a pending executor and prevents its later action dispatch\n  ---\n  duration_ms: 0.992375\n  type: 'test'\n  ...\n# Subtest: closing pending work cancels it reports incompleteness and closes only once\nok 29 - closing pending work cancels it reports incompleteness and closes only once\n  ---\n  duration_ms: 0.58275\n  type: 'test'\n  ...\n# Subtest: idle cancellation and session expiry remain terminal failures at every close\nok 30 - idle cancellation and session expiry remain terminal failures at every close\n  ---\n  duration_ms: 42.519042\n  type: 'test'\n  ...\n# Subtest: cleanup failures and deadlines remain finite visible outcomes\nok 31 - cleanup failures and deadlines remain finite visible outcomes\n  ---\n  duration_ms: 21.729542\n  type: 'test'\n  ...\n# Subtest: evidence is detached frozen and redacted while preserving a failed awaited step\nok 32 - evidence is detached frozen and redacted while preserving a failed awaited step\n  ---\n  duration_ms: 1.214667\n  type: 'test'\n  ...\n# Subtest: agent success semantic verdicts value checks and close do not qualify replay records\nok 33 - agent success semantic verdicts value checks and close do not qualify replay records\n  ---\n  duration_ms: 0.866459\n  type: 'test'\n  ...\n# Subtest: a semantic assertion preserves pending actions but only a later deterministic check records them\nok 34 - a semantic assertion preserves pending actions but only a later deterministic check records them\n  ---\n  duration_ms: 0.492084\n  type: 'test'\n  ...\n# Subtest: an already true unrelated check cannot cache an action when the observed UI did not change\nok 35 - an already true unrelated check cannot cache an action when the observed UI did not change\n  ---\n  duration_ms: 0.231375\n  type: 'test'\n  ...\n# Subtest: a later successful locator check enables replay in a fresh journey without an executor\nok 36 - a later successful locator check enables replay in a fresh journey without an executor\n  ---\n  duration_ms: 0.418667\n  type: 'test'\n  ...\n# Subtest: manual intervention or a fill prevents pending actions from becoming replayable\nok 37 - manual intervention or a fill prevents pending actions from becoming replayable\n  ---\n  duration_ms: 0.407041\n  type: 'test'\n  ...\n# Subtest: replay divergence after dispatch cannot repeat the action through a live executor\nok 38 - replay divergence after dispatch cannot repeat the action through a live executor\n  ---\n  duration_ms: 0.855875\n  type: 'test'\n  ...\n# Subtest: replay is bound to explicit scope and starting UI while assertions remain live\nok 39 - replay is bound to explicit scope and starting UI while assertions remain live\n  ---\n  duration_ms: 0.776958\n  type: 'test'\n  ...\n# Subtest: exact scope goal and UI strings distinguish isolated UTF-16 units from Unicode replacement characters\nok 40 - exact scope goal and UI strings distinguish isolated UTF-16 units from Unicode replacement characters\n  ---\n  duration_ms: 0.89225\n  type: 'test'\n  ...\n# Subtest: the actual Vitest fixture lazily owns setup use teardown and safe host metadata\nok 41 - the actual Vitest fixture lazily owns setup use teardown and safe host metadata\n  ---\n  duration_ms: 3.667875\n  type: 'test'\n  ...\n# Subtest: direct body failures survive cleanup and recorded Vitest failures remain runner owned\nok 42 - direct body failures survive cleanup and recorded Vitest failures remain runner owned\n  ---\n  duration_ms: 0.56125\n  type: 'test'\n  ...\n# Subtest: cleanup failure after a successful body remains visible and excludes raw driver errors\nok 43 - cleanup failure after a successful body remains visible and excludes raw driver errors\n  ---\n  duration_ms: 0.23325\n  type: 'test'\n  ...\n# Subtest: body cleanup and evidence callback failures are all preserved without replacing the body verdict\nok 44 - body cleanup and evidence callback failures are all preserved without replacing the body verdict\n  ---\n  duration_ms: 0.2255\n  type: 'test'\n  ...\n# Subtest: an evidence callback failure is visible after cleanup and caller cancellation reaches setup\nok 45 - an evidence callback failure is visible after cleanup and caller cancellation reaches setup\n  ---\n  duration_ms: 0.500166\n  type: 'test'\n  ...\n1..45\n# tests 45\n# suites 0\n# pass 45\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 447.183458\n"
+  },
+  "stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "text": ""
+  },
+  "cleanup": {
+    "childAndNodeRunnerCompleted": true,
+    "fileFixturesCreated": false,
+    "temporaryWorktreeCreated": false
+  },
+  "proofLimits": [
+    "T2 authored app/Playwright-shaped/host callbacks only.",
+    "No real Vitest runner, browser, package install, server, database, account, provider or model.",
+    "The separately prepared17-case installed-consumer scope did not execute.",
+    "No product/source input or historical seal changed; no publication."
+  ]
+}
