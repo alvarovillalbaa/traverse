@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "status": "failed",
+  "date": "2026-10-31",
+  "scope": "Prepared installed-consumer typecheck and 17 real-runner cases: 3 lifecycle, 6 intentional failures, 8 Chromium journeys.",
+  "sourceCommit": "abd36915010dc2a3f932454f00f0665e39db11ea",
+  "activationCommit": "fa0e646c6dfd8d2bc5cb29cc494b48c1ef9f1996",
+  "run": {
+    "id": 41238834904,
+    "attempt": 1,
+    "jobId": 124648227573,
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41238834904",
+    "status": "completed",
+    "conclusion": "failure",
+    "startedAt": "2026-10-31T20:25:26Z",
+    "updatedAt": "2026-10-31T20:26:03Z"
+  },
+  "preparation": {
+    "nodeVersion": "v24.21.0",
+    "sourceFilesVerified": 18,
+    "initialFilesVerified": 28,
+    "packageFilesVerified": 21,
+    "sdkArchiveSha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7",
+    "sdkArchiveBytes": 24497
+  },
+  "environment": {
+    "nodeVersion": "v24.21.0",
+    "platform": "linux",
+    "tools": {
+      "vitest": "4.0.16",
+      "playwright": "1.57.0",
+      "typescript": "5.9.3",
+      "@types/node": "24.10.1"
+    },
+    "sdkArchiveSha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7"
+  },
+  "typecheck": {
+    "status": "failed",
+    "exitCode": 2,
+    "signal": null,
+    "stdoutBytes": 2884,
+    "stdoutSha256": "cd2cd3271004f1111c56ea1da7383f4cbbb66708b65d4f601e90fcd6b2363cb7",
+    "code": "TS2345",
+    "diagnostic": "The authored markBody helper requires HostTask.meta as Record<string, unknown>, but actual Vitest TaskMeta lacks that index signature. Real runner tasks therefore fail its parameter check.",
+    "owner": "tests/fixtures/vitest-driver.ts markBody parameter",
+    "sdkFailureEstablished": false
+  },
+  "runtimeCases": {
+    "expected": 17,
+    "executed": 0,
+    "accepted": 0,
+    "lifecycle": "unrun",
+    "negative": "unrun",
+    "browser": "unrun",
+    "companionReceipts": "not produced",
+    "validators": "not invoked"
+  },
+  "cleanup": {
+    "supervisorErrors": [],
+    "ownedConsumerDirectory": "removed successfully",
+    "artifactBounds": "passed",
+    "upload": "passed"
+  },
+  "retainedLock": {
+    "path": "docs/results/2026/10-31/consumer-package-lock.json",
+    "bytes": 51942,
+    "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313",
+    "transport": "lossless gzip-base64 from bounded CI stdout",
+    "gzipBytes": 11060,
+    "gzipSha256": "a4faae0a5e0c3c65d1f16b11705e6441195ac9aa2244e4991fc7df2003a45de3",
+    "lockfileVersion": 3,
+    "packages": 100,
+    "generatedBytesUnchanged": true
+  },
+  "artifact": {
+    "id": 13056751280,
+    "name": "traverse-consumer-41238834904",
+    "zipBytes": 15751,
+    "providerSha256": "a2a11a63e0ee1e9d54e75467c59d4a6b1762bcde08dc3dc600b0c9864ccabe73",
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41238834904/artifacts/13056751280",
+    "expiresAt": "2026-11-01T20:26:00Z",
+    "files": [
+      {
+        "name": "consumer-environment.json",
+        "bytes": 2976,
+        "sha256": "551a6454624d50d749bb522335b83ecd3b2dc291d35cc0946f76f6d239dcd576"
+      },
+      {
+        "name": "consumer-run.json",
+        "bytes": 1058,
+        "sha256": "2422d893b4d96871d52a54fa55724607a231d2a80523993a9420e476713386b5"
+      },
+      {
+        "name": "package-lock.json",
+        "bytes": 51942,
+        "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313"
+      },
+      {
+        "name": "preparation.json",
+        "bytes": 4447,
+        "sha256": "9f2a1004d3fb3797d43880570bb382aecb11889bb7b72bcb9b7eab39c1c3ff4f"
+      },
+      {
+        "name": "tsc.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "tsc.stdout.log",
+        "bytes": 2884,
+        "sha256": "cd2cd3271004f1111c56ea1da7383f4cbbb66708b65d4f601e90fcd6b2363cb7"
+      }
+    ]
+  },
+  "transport": {
+    "connectorDecodedLogBytes": 84157,
+    "connectorDecodedLogSha256": "cd0be1543a0893594fa49dac14e5047dba80dcb26227d751ee87a99d07b4855e",
+    "extractedPacketBytes": 19398,
+    "extractedPacketSha256": "f90e46048f3fef0254156037e81927fba90c508db602e721c7425cef6d7b9ac8",
+    "decodedLogData": "Preserved in the tool session; the canonical job log is linked above. Full raw logs are not republished in this receipt."
+  },
+  "limits": [
+    "Clean package installation and the pinned Node/Linux/tool versions were observed; strict typechecking stopped before all runtime suites.",
+    "Chromium tooling was installed but the browser suite never launched a browser or served its example app.",
+    "This result does not establish a public SDK type defect or runtime failure. The observed error belongs to the authored test helper.",
+    "No model/provider call, production data, real account, database, registry publication or paid enrollment was used."
+  ]
+}

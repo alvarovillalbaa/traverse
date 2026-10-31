@@ -18,7 +18,7 @@ try {
     || basename(consumer) !== `traverse-consumer-${process.env.GITHUB_RUN_ID}` || existsSync(consumer)) throw new Error();
 
   phase = 'source';
-  const seal = JSON.parse(readFileSync(resolve(root, 'docs/results/2026/10-28/consumer-source.json'), 'utf8'));
+  const seal = JSON.parse(readFileSync(resolve(root, 'docs/results/2026/10-31/consumer-source-repaired.json'), 'utf8'));
   for (const [file, expected] of Object.entries(seal.sha256)) {
     if (file.startsWith('/') || file.split('/').includes('..') || digest(readFileSync(resolve(root, file))) !== expected) throw new Error();
   }

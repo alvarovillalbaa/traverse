@@ -104,7 +104,7 @@ export function authoredFixture(options: {
   return {
     fixture,
     get factoryCalls() { return factories; },
-    markBody(task: HostTask) {
+    markBody(task: { readonly id: string }) {
       const entry = entries.get(task.id);
       if (!entry) throw new Error('AUTHORED_FIXTURE_NOT_INITIALIZED');
       entry.receipt.bodyEntered = true; entry.receipt.taskMatched = entry.task === task;
