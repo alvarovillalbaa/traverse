@@ -1,6 +1,12 @@
 import { createUiFixture } from '@alvarovillalbaa/traverse/vitest';
 import type { Action, Assertion, Driver, SessionEvidence } from '@alvarovillalbaa/traverse';
 
+declare module 'vitest' {
+  interface TaskMeta {
+    traverse?: Record<string, unknown>;
+  }
+}
+
 // T2 app state behind the real Vitest fixture. This is not a browser boundary.
 type HostTask = {
   id: string;

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "status": "failed",
+  "date": "2026-10-31",
+  "packetAttempt": 2,
+  "sourceCommit": "988b976c4d5828e905f6cafd66ddfa75e16d026e",
+  "activationCommit": "1258d26f644fd0b1d826d99f742d14bdb9a3166f",
+  "run": {
+    "id": 41239384035,
+    "attempt": 1,
+    "jobId": 124649872164,
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41239384035",
+    "status": "completed",
+    "conclusion": "failure",
+    "startedAt": "2026-10-31T20:32:34Z",
+    "updatedAt": "2026-10-31T20:33:07Z"
+  },
+  "preparation": {
+    "nodeVersion": "v24.21.0",
+    "sourceFilesVerified": 19,
+    "initialFilesVerified": 28,
+    "packageFilesVerified": 21,
+    "sdkArchiveSha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7",
+    "sdkArchiveBytes": 24497
+  },
+  "environment": {
+    "nodeVersion": "v24.21.0",
+    "platform": "linux",
+    "tools": {
+      "vitest": "4.0.16",
+      "playwright": "1.57.0",
+      "typescript": "5.9.3",
+      "@types/node": "24.10.1"
+    },
+    "sdkArchiveSha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7"
+  },
+  "typecheck": {
+    "status": "failed",
+    "exitCode": 2,
+    "signal": null,
+    "stdoutBytes": 118,
+    "stdoutSha256": "da0a781e9c77e47e0e36bb8bf040e0aa2db61c82d2ebf0012709d176e6b84a6f",
+    "diagnostic": "tests/integration/vitest-fixture.test.ts(13,13): error TS2339: Property 'traverse' does not exist on type 'TaskMeta'.",
+    "owner": "The unused-fixture acceptance case writes its custom metadata directly on real Vitest TaskMeta.",
+    "sdkFailureEstablished": false
+  },
+  "runtimeCases": {
+    "expected": 17,
+    "executed": 0,
+    "accepted": 0,
+    "lifecycle": "unrun",
+    "negative": "unrun",
+    "browser": "unrun",
+    "companionReceipts": "not produced",
+    "validators": "not invoked"
+  },
+  "cleanup": {
+    "supervisorErrors": [],
+    "ownedConsumerDirectory": "removed successfully",
+    "artifactBounds": "passed",
+    "upload": "passed"
+  },
+  "retainedLock": {
+    "path": "docs/results/2026/10-31/consumer-package-lock.json",
+    "bytes": 51942,
+    "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313",
+    "gzipBytes": 11060,
+    "gzipSha256": "a4faae0a5e0c3c65d1f16b11705e6441195ac9aa2244e4991fc7df2003a45de3",
+    "transportIdenticalToAttempt1": true,
+    "generatedBytesUnchanged": true
+  },
+  "sdkArchive": {
+    "bytes": 24497,
+    "sha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7",
+    "unchangedFromAttempt1": true,
+    "packageFilesVerified": 21
+  },
+  "artifact": {
+    "id": 13056662497,
+    "name": "traverse-consumer-41239384035",
+    "zipBytes": 15535,
+    "providerSha256": "72724ebd50e593d387841bce46dfc8bf7ddf723a340d16a58378ab6705b126b2",
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41239384035/artifacts/13056662497",
+    "expiresAt": "2026-11-01T20:33:03Z",
+    "files": [
+      {
+        "name": "consumer-environment.json",
+        "bytes": 2976,
+        "sha256": "d9fc19dc44bdd78e5110a21c7459b2b87ad6b0c1dd64c4ec1740479c6feff015"
+      },
+      {
+        "name": "consumer-run.json",
+        "bytes": 1055,
+        "sha256": "d8be1f5f2820ca2930448fd5b89d1b409c7bc141d0ec989a71c4487cc60bb085"
+      },
+      {
+        "name": "package-lock.json",
+        "bytes": 51942,
+        "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313"
+      },
+      {
+        "name": "preparation.json",
+        "bytes": 4447,
+        "sha256": "cc8fa9ab6b3b8dd61c92ae8205e50ac90fa3f81b89ffce0483f2b2df077c6b1e"
+      },
+      {
+        "name": "tsc.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "tsc.stdout.log",
+        "bytes": 118,
+        "sha256": "da0a781e9c77e47e0e36bb8bf040e0aa2db61c82d2ebf0012709d176e6b84a6f"
+      }
+    ]
+  },
+  "transport": {
+    "connectorDecodedLogBytes": 82155,
+    "connectorDecodedLogSha256": "984c8a2f5b438855670bea705d63a35756ba5eee5314189c0e9c8b22c2d1a227",
+    "extractedPacketBytes": 17441,
+    "extractedPacketSha256": "7f8728d8c24720399f632b6b6fb6dc87c093a78a3402ad547feaf23f3d04ead3",
+    "decodedLogData": "Preserved in the tool session; canonical job logs are linked above. Full raw logs are not republished."
+  },
+  "limits": [
+    "The first fixture parameter repair is present; a remaining custom-metadata declaration mismatch prevents strict typechecking.",
+    "All 17 runtime cases remain unrun, and this failure does not establish an SDK/runtime defect.",
+    "Dependency lock and installed SDK archive are unchanged; no replacement dependency resolution was introduced.",
+    "Chromium tooling was installed, but no browser or example app was launched. No local install/test, model/provider call, production data, real account or paid enrollment occurred."
+  ]
+}
