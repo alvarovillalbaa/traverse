@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-31",
+  "status": "accepted",
+  "packetAttempt": 4,
+  "resultMeaning": "All 17 prepared case contracts were accepted: eleven passing tests and six individually validated ordinary intentional failures.",
+  "testedSourceCommit": "6364d80c6bd8ba14c0afdc4c2e87769e993e7b09",
+  "activationCommit": "f64fc21e4affb9ea7ab688adda5b6c81a8ffc999",
+  "checkedSourceSeal": {
+    "path": "docs/results/2026/10-31/consumer-source-repaired-v3.json",
+    "sha256": "0cb5d6cd8387ba231bb2e123532e3d540edf5f40d9c114bbd2ac1c343df2acb9",
+    "consumerInputs": 19,
+    "initialInputs": 28,
+    "packageFiles": 21
+  },
+  "run": {
+    "id": 41240846166,
+    "attempt": 1,
+    "jobId": 124654229628,
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41240846166",
+    "status": "completed",
+    "conclusion": "success",
+    "startedAt": "2026-10-31T20:51:25Z",
+    "updatedAt": "2026-10-31T20:51:59Z",
+    "runner": "ubuntu-24.04",
+    "timeoutMinutes": 20
+  },
+  "observedProfile": {
+    "os": "Ubuntu 24.04.5 LTS",
+    "image": "ubuntu-24.04",
+    "imageVersion": "20261025.353.1",
+    "node": "v24.21.0",
+    "platform": "linux",
+    "tools": {
+      "vitest": "4.0.16",
+      "playwright": "1.57.0",
+      "typescript": "5.9.3",
+      "@types/node": "24.10.1"
+    },
+    "chromiumTooling": "Chromium Headless Shell 143.0.7499.4, Playwright build v1200"
+  },
+  "typecheck": {
+    "status": "passed",
+    "exitCode": 0,
+    "scope": "Strict installed consumer of all three public entrypoints; no source alias or SDK shim."
+  },
+  "caseCounts": {
+    "accepted": 17,
+    "passingTests": 11,
+    "validatedExpectedFailures": 6,
+    "lifecycle": 3,
+    "negative": 6,
+    "browser": 8,
+    "pending": 0,
+    "todo": 0,
+    "unhandledErrors": 0
+  },
+  "suites": [
+    {
+      "mode": "lifecycle",
+      "runnerExitCode": 0,
+      "validator": {
+        "schemaVersion": 1,
+        "kind": "traverse-vitest-acceptance",
+        "mode": "lifecycle",
+        "runnerVersion": "4.0.16",
+        "cases": 3,
+        "expectedHostFailures": 0,
+        "runnerExitCode": 0,
+        "unhandledErrorCount": 0,
+        "verified": true,
+        "reportSha256": "29a428c6518533d2fd378505be75f433fc313180da2eea2c436340ef0b2bc3a3",
+        "receiptSha256": "d4abba1c9b557698de1c7173d23a56b8ce34fa02637691a5248d3b0865ba2eb7"
+      },
+      "report": {
+        "success": true,
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "pending": 0,
+        "todo": 0,
+        "cases": [
+          {
+            "title": "unused Traverse fixture remains lazy in the real runner",
+            "status": "passed"
+          },
+          {
+            "title": "real Vitest initializes the requested fixture and tears down an exact checked journey",
+            "status": "passed"
+          },
+          {
+            "title": "a second real Vitest test receives pristine independently owned app state",
+            "status": "passed"
+          }
+        ]
+      },
+      "companion": {
+        "schemaVersion": 2,
+        "kind": "traverse-vitest-run-receipt",
+        "runnerVersion": "4.0.16",
+        "completed": true,
+        "endReason": "passed",
+        "moduleCount": 1,
+        "unhandledErrorCount": 0,
+        "timeoutEvidence": []
+      }
+    },
+    {
+      "mode": "negative",
+      "runnerExitCode": 1,
+      "validator": {
+        "schemaVersion": 1,
+        "kind": "traverse-vitest-acceptance",
+        "mode": "negative",
+        "runnerVersion": "4.0.16",
+        "cases": 6,
+        "expectedHostFailures": 6,
+        "runnerExitCode": 1,
+        "unhandledErrorCount": 0,
+        "verified": true,
+        "reportSha256": "11075d35e0c678d9c9d085ced168aa0500d235604bc9f1feb5b6a49c74e854ed",
+        "receiptSha256": "bbed8d655bddbf18d49ef9bd57aa55129f01cc3fbd245b75a2686009555dd1aa"
+      },
+      "report": {
+        "success": false,
+        "total": 6,
+        "passed": 0,
+        "failed": 6,
+        "pending": 0,
+        "todo": 0,
+        "cases": [
+          {
+            "title": "recorded Vitest body failure survives successful Traverse teardown",
+            "status": "failed"
+          },
+          {
+            "title": "Traverse cleanup failure makes a successful Vitest body fail",
+            "status": "failed"
+          },
+          {
+            "title": "Traverse evidence callback failure makes a successful Vitest body fail",
+            "status": "failed"
+          },
+          {
+            "title": "recorded body failure and Traverse cleanup failure both reach the Vitest result",
+            "status": "failed"
+          },
+          {
+            "title": "idle caller cancellation cannot become a passing Vitest teardown",
+            "status": "failed"
+          },
+          {
+            "title": "real Vitest timeout aborts the fixture signal and closes its owned driver",
+            "status": "failed"
+          }
+        ]
+      },
+      "companion": {
+        "schemaVersion": 2,
+        "kind": "traverse-vitest-run-receipt",
+        "runnerVersion": "4.0.16",
+        "completed": true,
+        "endReason": "failed",
+        "moduleCount": 1,
+        "unhandledErrorCount": 0,
+        "timeoutEvidence": [
+          {
+            "caseId": "1895379841_5",
+            "title": "real Vitest timeout aborts the fixture signal and closes its owned driver",
+            "fullName": "real Vitest timeout aborts the fixture signal and closes its owned driver",
+            "moduleId": "tests/integration/vitest-negative.test.ts",
+            "state": "failed",
+            "reportedTimeoutMs": 250,
+            "message": "Test timed out in 250ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".",
+            "errorCount": 2
+          }
+        ]
+      }
+    },
+    {
+      "mode": "browser",
+      "runnerExitCode": 0,
+      "validator": {
+        "schemaVersion": 1,
+        "kind": "traverse-vitest-acceptance",
+        "mode": "browser",
+        "runnerVersion": "4.0.16",
+        "cases": 8,
+        "expectedHostFailures": 0,
+        "runnerExitCode": 0,
+        "unhandledErrorCount": 0,
+        "verified": true,
+        "reportSha256": "778ac20659d79a900c5465b7e9238b47d1b98a25eead22d206973d55189990d7",
+        "receiptSha256": "d4abba1c9b557698de1c7173d23a56b8ce34fa02637691a5248d3b0865ba2eb7"
+      },
+      "report": {
+        "success": true,
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "pending": 0,
+        "todo": 0,
+        "cases": [
+          {
+            "title": "Vitest fixture fills and submits exact controls through public exports",
+            "status": "passed"
+          },
+          {
+            "title": "scripted executor receives real observations and assertions always run live",
+            "status": "passed"
+          },
+          {
+            "title": "a later checked action replays in a fresh context without a second executor call",
+            "status": "passed"
+          },
+          {
+            "title": "an unchecked successful action is not replayed in another context",
+            "status": "passed"
+          },
+          {
+            "title": "owned contexts isolate UI data and preserve a consumer context",
+            "status": "passed"
+          },
+          {
+            "title": "cancellation closes a real page and fences a late executor action",
+            "status": "passed"
+          },
+          {
+            "title": "a failed protocol step remains visible at real-page teardown",
+            "status": "passed"
+          },
+          {
+            "title": "a native locator deadline cannot turn into a passing session",
+            "status": "passed"
+          }
+        ]
+      },
+      "companion": {
+        "schemaVersion": 2,
+        "kind": "traverse-vitest-run-receipt",
+        "runnerVersion": "4.0.16",
+        "completed": true,
+        "endReason": "passed",
+        "moduleCount": 1,
+        "unhandledErrorCount": 0,
+        "timeoutEvidence": []
+      }
+    }
+  ],
+  "sourceTimeoutConfiguration": {
+    "file": "tests/integration/vitest-negative.test.ts",
+    "timeoutMs": 250,
+    "proof": "Unchanged frozen authored case option; configured timeout is not claimed from a nonexistent public options property."
+  },
+  "timeoutMetadata": {
+    "hostSignalAborted": true,
+    "childAbortedAtEvidence": true,
+    "bodyStateAtEvidence": "fail",
+    "bodyErrorsAtEvidence": 1,
+    "lifecycle": "cancelled",
+    "closeCalls": 1,
+    "evidenceCalls": 1
+  },
+  "checkedSdkArchive": {
+    "bytes": 24497,
+    "sha256": "ccba89195ff470c8934654c61e159c69ff18316c50f26e17fd6e1dfdc37ff0e7",
+    "packageFilesVerified": 21,
+    "unchangedFromAllPriorAttempts": true
+  },
+  "retainedLock": {
+    "path": "docs/results/2026/10-31/consumer-package-lock.json",
+    "bytes": 51942,
+    "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313",
+    "gzipBytes": 11060,
+    "gzipSha256": "a4faae0a5e0c3c65d1f16b11705e6441195ac9aa2244e4991fc7df2003a45de3",
+    "transportIdenticalToAttempt1": true,
+    "generatedBytesUnchanged": true
+  },
+  "processes": [
+    {
+      "name": "tsc",
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 2011,
+      "stdoutComplete": true,
+      "stderrComplete": true,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lifecycle",
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 337,
+      "stdoutComplete": true,
+      "stderrComplete": true,
+      "stdoutBytes": 102,
+      "stderrBytes": 0,
+      "stdoutSha256": "761ddb8ace46905dad307d111988109d3f71b255cc60a5bfcc8f65a72e050548",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "lifecycle-validator",
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 22,
+      "stdoutComplete": true,
+      "stderrComplete": true,
+      "stdoutBytes": 194,
+      "stderrBytes": 0,
+      "stdoutSha256": "11a1bce713b378d13106110efa69c51fba8b28f965d0df8d725eb0dac73c6c86",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "negative",
+      "exitCode": 1,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 707,
+      "stdoutComplete": true,
+      "stderrComplete": true,
+      "stdoutBytes": 101,
+      "stderrBytes": 0,
+      "stdoutSha256": "08dcc81273521e36bf44258550a74fdd0efb42cc4008fdaf609f324a67d4f337",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "negative-validator",
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 22,
+      "stdoutComplete": true,
+      "stderrComplete": true,
+      "stdoutBytes": 193,
+      "stderrBytes": 0,
+      "stdoutSha256": "fe36796360376466470e62c7a89c568e1ffc566ee2c4a291758d7f2826512d44",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "browser",
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 1915,
+      "stdoutComplete": true,
+      "stderrComplete": true,
+      "stdoutBytes": 100,
+      "stderrBytes": 0,
+      "stdoutSha256": "854b2866ab29114638a8b5ad3d8a3721415413d49c824ef3eee7934a1c58a2b1",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "browser-validator",
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 22,
+      "stdoutComplete": true,
+      "stderrComplete": true,
+      "stdoutBytes": 192,
+      "stderrBytes": 0,
+      "stdoutSha256": "7c5f79ffae3768416aba80eebcd597d42e28c36398ed5e941de55d24ac9246f2",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "app-server",
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "durationMs": 2051,
+      "stdoutComplete": false,
+      "stderrComplete": false,
+      "stdoutBytes": 37,
+      "stderrBytes": 0,
+      "stdoutSha256": "db825b5726c02c1f9df22c6e1a0fba22e43ca348bc63b3ed101cc58b83fb11fc",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "cleanup": {
+    "supervisorErrors": [],
+    "ownedBrowserAndContextAssertions": "passed in the browser suite",
+    "ownedAppServer": {
+      "exitCode": 0,
+      "signal": null,
+      "errorCode": null,
+      "stdoutComplete": false,
+      "stderrComplete": false,
+      "limit": "The supervisor intentionally stops this owned server and its log streams. These flags are retained; complete server-log capture is not claimed."
+    },
+    "ownedConsumerDirectory": "cleanup step succeeded",
+    "artifactBounds": "passed",
+    "artifactUpload": "passed",
+    "temporaryWorkflow": "Removed in the final results/documentation publication packet; canonical readback is recorded in the delivery handoff."
+  },
+  "artifact": {
+    "id": 13057850097,
+    "name": "traverse-consumer-41240846166",
+    "zipBytes": 23574,
+    "providerSha256": "1dccc7704d9773f780021634926aeb64d3a3d331862a75888be18b4d6e552d30",
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/41240846166/artifacts/13057850097",
+    "expiresAt": "2026-11-01T20:51:54Z",
+    "files": [
+      {
+        "name": "app-server.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "app-server.stdout.log",
+        "bytes": 37,
+        "sha256": "db825b5726c02c1f9df22c6e1a0fba22e43ca348bc63b3ed101cc58b83fb11fc"
+      },
+      {
+        "name": "browser-validator.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "browser-validator.stdout.log",
+        "bytes": 192,
+        "sha256": "7c5f79ffae3768416aba80eebcd597d42e28c36398ed5e941de55d24ac9246f2"
+      },
+      {
+        "name": "browser.json",
+        "bytes": 3223,
+        "sha256": "778ac20659d79a900c5465b7e9238b47d1b98a25eead22d206973d55189990d7"
+      },
+      {
+        "name": "browser.receipt.json",
+        "bytes": 181,
+        "sha256": "d4abba1c9b557698de1c7173d23a56b8ce34fa02637691a5248d3b0865ba2eb7"
+      },
+      {
+        "name": "browser.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "browser.stdout.log",
+        "bytes": 100,
+        "sha256": "854b2866ab29114638a8b5ad3d8a3721415413d49c824ef3eee7934a1c58a2b1"
+      },
+      {
+        "name": "consumer-environment.json",
+        "bytes": 2976,
+        "sha256": "46dd4b29315e4a2c1c24cae0d4882ee10421d143f4769008a3e76dbfdcbbc2f5"
+      },
+      {
+        "name": "consumer-run.json",
+        "bytes": 7279,
+        "sha256": "88edf4ec5f966eca0596763731ee97ad7726c367d98b46bcc1e43ab746d8fc63"
+      },
+      {
+        "name": "lifecycle-validator.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "lifecycle-validator.stdout.log",
+        "bytes": 194,
+        "sha256": "11a1bce713b378d13106110efa69c51fba8b28f965d0df8d725eb0dac73c6c86"
+      },
+      {
+        "name": "lifecycle.json",
+        "bytes": 2429,
+        "sha256": "29a428c6518533d2fd378505be75f433fc313180da2eea2c436340ef0b2bc3a3"
+      },
+      {
+        "name": "lifecycle.receipt.json",
+        "bytes": 181,
+        "sha256": "d4abba1c9b557698de1c7173d23a56b8ce34fa02637691a5248d3b0865ba2eb7"
+      },
+      {
+        "name": "lifecycle.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "lifecycle.stdout.log",
+        "bytes": 102,
+        "sha256": "761ddb8ace46905dad307d111988109d3f71b255cc60a5bfcc8f65a72e050548"
+      },
+      {
+        "name": "negative-validator.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "negative-validator.stdout.log",
+        "bytes": 193,
+        "sha256": "fe36796360376466470e62c7a89c568e1ffc566ee2c4a291758d7f2826512d44"
+      },
+      {
+        "name": "negative.json",
+        "bytes": 9727,
+        "sha256": "11075d35e0c678d9c9d085ced168aa0500d235604bc9f1feb5b6a49c74e854ed"
+      },
+      {
+        "name": "negative.receipt.json",
+        "bytes": 647,
+        "sha256": "bbed8d655bddbf18d49ef9bd57aa55129f01cc3fbd245b75a2686009555dd1aa"
+      },
+      {
+        "name": "negative.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "negative.stdout.log",
+        "bytes": 101,
+        "sha256": "08dcc81273521e36bf44258550a74fdd0efb42cc4008fdaf609f324a67d4f337"
+      },
+      {
+        "name": "package-lock.json",
+        "bytes": 51942,
+        "sha256": "e28932e1d5d1670975d2628e1e7b5c83423ac6c197687f461b586a23ca83d313"
+      },
+      {
+        "name": "preparation.json",
+        "bytes": 4447,
+        "sha256": "cc8fa9ab6b3b8dd61c92ae8205e50ac90fa3f81b89ffce0483f2b2df077c6b1e"
+      },
+      {
+        "name": "tsc.stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "tsc.stdout.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "transport": {
+    "connectorDecodedLogBytes": 99360,
+    "connectorDecodedLogSha256": "5e8744eebb32403102b8207a9aca3bdeb05041ee7622f80dfc5eb81170506f78",
+    "extractedPacketBytes": 34682,
+    "extractedPacketSha256": "d03942f8d899a09ea840e2e5290b7483efb9f907a59933b7837af504727e0bdc",
+    "independentReview": "Matched all exact names, counts, exits, actual companion fields/raw timeout message, companion byte hashes and report/artifact hashes. Full original Vitest JSON was validated in CI; its bounded projections were reviewed here."
+  },
+  "priorAttempts": [
+    "docs/results/2026/10-31/consumer-checks-attempt1.md",
+    "docs/results/2026/10-31/consumer-checks-attempt2.md",
+    "docs/results/2026/10-31/consumer-checks-attempt3.md"
+  ],
+  "limits": [
+    "This acceptance belongs to immutable source 6364d80 and archive ccba8919; later documentation editions are outside that tested archive identity.",
+    "The six negative tests intentionally failed; they are not reported as passing Vitest tests. Their exact errors, metadata, raw timeout evidence and exit 1 were validated.",
+    "The SDK/example uses authored loopback state and scripted executor inputs. This is real Chromium/runner/package acceptance, not model/provider-quality or production-data proof.",
+    "Other browsers, mobile/touch, authenticated services, cross-origin network containment and npm registry publication remain unproved.",
+    "No local dependency installation/test, production data, database, account creation, model/provider call or paid enrollment was added in this scope."
+  ]
+}

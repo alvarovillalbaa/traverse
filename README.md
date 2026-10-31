@@ -2,10 +2,11 @@
 
 Browser journeys in Vitest, with exact checks and optional agent steps.
 
-**Source preview.** Traverse is a new companion library with a real Playwright
-adapter. Runtime, Vitest and browser acceptance are still pending their explicit
-check scopes. It is not published to npm. The [owning contract](docs/spec.md)
-preserves the complete delivery requirements and proof boundaries.
+**Verified web profile.** Traverse has [45 passing core checks](docs/results/2026/10-31/local-checks.md)
+and [17 accepted installed-consumer contracts](docs/results/2026/10-31/consumer-checks.md),
+including eight real Chromium journeys. Package delivery is through this
+repository. The [owning contract](docs/spec.md) preserves the complete delivery
+requirements and proof boundaries.
 
 Traverse uses your existing Vitest and Playwright installations. It creates one
 fresh browser context per session, bounds operations and cleans up that context.
@@ -147,13 +148,22 @@ without importing product/test modules. Declaration/example syntax and exact
 authored check scopes are recorded in [acceptance](docs/acceptance.md). No test,
 browser, model, install, CI or hosted result is implied by a static check.
 
+The installed profile used Node 24.21.0, Vitest 4.0.16, Playwright 1.57.0 and
+TypeScript 5.9.3. Its seventeen contracts comprise three lifecycle passes, six
+validated intentional failures and eight browser passes. Reproduce it using
+the receipt's immutable source `6364d80c6bd8ba14c0afdc4c2e87769e993e7b09`;
+the consumer controller verifies that revision's frozen fingerprints and lock.
+This later README/acceptance edition changes documentation. Runtime modules,
+declarations and case bodies retain their checked bytes. Model quality and
+authenticated services require separate qualification.
+
 ## Files and provenance
 
 - `src/session.js`, `src/replay.js`, `src/protocol.js`: session, executor and verified replay.
 - `src/playwright.js`, `src/vitest.js`: explicit real-driver and host-runner integration.
 - `types/`: dependency-free structural declarations.
 - `examples/`: authored app and complete consumer example.
-- `tests/unit/`: authored T2 contract fixtures; execution is separately approved.
+- `tests/unit/`: authored T2 contract fixtures with recorded 45-case results.
 
 The design is informed by [tester-army/e2e](https://github.com/tester-army/e2e),
 identified by Alvaro, and official [Vitest/Playwright contracts](docs/references.md).
