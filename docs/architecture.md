@@ -1,6 +1,6 @@
 # Runtime and adapter contract
 
-Last updated: 2026-10-28
+Last updated: 2026-11-12
 
 This is the implementation contract for the initial web profile. Original
 source belongs in `src/`; public declarations in `types/`; authored T2 fixtures
@@ -83,6 +83,18 @@ returns `{status:'done'|'blocked'}`; assertion mode returns
 `{status:'passed'|'failed'|'blocked'}`. Unknown shapes fail closed. Caller-owned
 model requests, cost and credentials remain the executor's responsibility;
 runtime action/step limits do not claim to meter opaque provider calls.
+
+The optional 0.2.0 `./openai` entrypoint provides an explicit Responses REST
+executor without changing that seam. Configuration requires model/key; nothing
+is discovered. Each stateless request sends only versioned instructions and the
+current goal/mode/observation, using strict structured output, no provider tools,
+no retries and `store:false`. Native action shapes are revalidated before the
+runtime-owned callback receives them. Its next request uses the callback's
+fresh bounded observation. Assertions allow only explicit passed/failed/blocked
+results and no actions. Request count, output tokens, streamed response bytes
+and runtime deadlines bound execution, not dollar cost. Cancellation fences
+late transport results and retains runtime finite error codes. See the
+[new scope](proposals/openai-checks.md) for qualification limits.
 
 Agent assertions always execute live. No executor configuration is discovered
 implicitly. An absent executor reports setup required, except for an already

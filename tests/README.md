@@ -19,3 +19,10 @@ The exact exception to a database-oriented E2E tier profile is explicit in the
 
 Every suite remains unexecuted pending its owning approval. No default CI is
 installed; the proposed consumer is outside the checkout under `RUNNER_TEMP`.
+
+The historical 45/17 results are now recorded in
+[acceptance](../docs/acceptance.md); the preceding proposal wording remains
+historical. The new optional OpenAI profile has its separate
+[26-unit/two-browser scope](../docs/proposals/openai-checks.md). Its browser
+fixture uses a real loopback HTTP transport and Chromium with authored
+decisions, without any live model calls. The old suites are not selected again.
