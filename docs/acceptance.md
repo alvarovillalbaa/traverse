@@ -17,7 +17,7 @@ Chromium journeys. The original source/publication receipts remain history.
 | Vitest fixture | Real runner setup/use/body failure/timeout/cleanup reporting | Five boundary cases passed; actual runner accepted three lifecycle and six intentional-failure contracts |
 | Real journey and replay | Authored app executes; checked second attempt uses no executor | Installed public adapter verified checked replay and owned context isolation |
 | Optional executor | Live user-supplied provider behavior, if selected | No provider or account selected; scripted fixtures are not model proof |
-| Optional 0.2.0 OpenAI transport | Focused wire/runtime/installed consumer checks | 26 unit and two Chromium cases prepared in the [new scope](proposals/openai-checks.md); execution pending, no live model proof |
+| Optional 0.2.0 OpenAI transport | Focused wire/runtime/installed consumer checks | [26 unit and two real Chromium cases passed](results/2026/11-12/openai-checks.md), plus scoped installed types; authored Responses decisions, no live model proof |
 | Portable package and GitHub | Export/declaration/artifact inspection and immutable remote readback | Three public entrypoints typechecked in a clean installed consumer; 21-file archive and exact lock verified at the recorded source |
 
 The installed package is qualified at immutable
@@ -26,6 +26,15 @@ The installed package is qualified at immutable
 Later README/acceptance edits are a documentation edition; runtime modules,
 declarations and case bodies retain their checked bytes. Historical seals and
 their guarded controllers stay bound to their recorded revisions.
+
+The opt-in 0.2.0 executor is separately qualified at
+`ff7fdd20424d6582eedc8713f1ca7a382acce5aa`: a 24-file package with SHA-256
+`b79d9259d6fd40cf0a18fc185ba449be459fe8803d2700822f0440f240e48ebb`.
+Its new declarations, wire/runtime cases and real HTTP/Chromium scenarios passed
+without invoking a model. Existing core modules and old case bodies remain
+unchanged; their old suites were not replayed. Package delivery remains GitHub
+source. See the [new receipt](results/2026/11-12/openai-checks.md) for exact
+source, cleanup, declaration and provider-quality boundaries.
 
 Companion schema two independently proves the real runner's 250 ms timeout
 message and preserves the abort/body/session-cancellation assertions. All three
@@ -36,5 +45,5 @@ failure history explains the type-helper and JSON formatter repairs.
 
 No Vercel or Supabase resource is needed for the Node test companion. The
 authored browser fixture is loopback-only. A hosted dashboard, database, mobile
-tooling, model integration and npm registry release are not silently added to
+tooling, live model qualification and npm registry release are not silently added to
 this brief. They remain independent choices if required later.

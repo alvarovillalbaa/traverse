@@ -1,0 +1,569 @@
+{
+  "schemaVersion": 1,
+  "kind": "traverse-openai-acceptance",
+  "recordedAt": "2026-11-12T04:03:21.418Z",
+  "source": {
+    "githubCommit": "ff7fdd20424d6582eedc8713f1ca7a382acce5aa",
+    "nativeCommit": "aa54d1d448e3c785a7d294a92af71ecd6c9241f1",
+    "tree": "a9738da950ba49a05d747573993c15f9bd0dfab1",
+    "base": "aa77c24de1e26ecd074274c36fe2098f4a61a3c0"
+  },
+  "qualification": {
+    "preservedBaselineFiles": 57,
+    "changedPaths": [
+      "README.md",
+      "docs/acceptance.md",
+      "docs/architecture.md",
+      "docs/proposals/openai-checks.md",
+      "docs/proposals/openai-checks.workflow.yml.example",
+      "docs/references.md",
+      "package.json",
+      "scripts/check-openai-consumer.mjs",
+      "scripts/retire-openai-ci.mjs",
+      "src/openai.js",
+      "src/prompts/openai-v1.js",
+      "tests/README.md",
+      "tests/e2e/openai.test.ts",
+      "tests/fixtures/openai-types.ts",
+      "tests/helpers/authored-responses.mjs",
+      "tests/unit/openai.test.mjs",
+      "types/openai.d.ts"
+    ],
+    "qualifiedInputSHA256": {
+      "package.json": "4eb48af4c96e231b434e14a8db0290483a4a75e8978053ab3bba2f7f4c6c505c",
+      "scripts/check-openai-consumer.mjs": "44ee0d0a967d8f40bfa00415a5d528f8737a182c2f0cdb7e6c25c68dd69baa0a",
+      "scripts/retire-openai-ci.mjs": "56579c88e36a210183d2305b013a54d2c98d4bfdcc054ca664fd3721568e8179",
+      "src/index.js": "9a53ecd8fe678fe62264fb26d0d0195a3f9261c101fc7ff9c62e7d5d8316b1dd",
+      "src/openai.js": "ef6deb375434d307294c824b0bbfcae7c485cace3a7e07830630d68d83b424b7",
+      "src/playwright.js": "5aaede045ff3f4d021504f4cd40bc4df92366fdd82d04656e546cb438bf09b2f",
+      "src/prompts/openai-v1.js": "d8374ddfc0d756e6eb7a094ecb4c150754c00df431c7bf0a7d47833a913d7e66",
+      "src/protocol.js": "2a026c15fdd081942437d6a5b91de7c94189f316e91d1f0845d7b1a00e8d47dd",
+      "src/replay.js": "a26c78523cfbef6c1fa23ef6d081672a12915b230df560117b4c865037594e05",
+      "src/session.js": "94100e8617b1edf8c61336a3aefecba59d52a2f635b7aa7f7dd01d2bc73094d1",
+      "src/vitest.js": "d5e233976f7c3cb05b7edd01561ab2f8516a31a6a4d420f5234e3a88188fc427",
+      "tests/README.md": "a4a103ea532cd1dcedc818c3852d235eff1a91c394f29a81aab317f802827565",
+      "tests/e2e/browser.test.ts": "58e317ba763036cad5822dd29284a816d8564c86720186ebfcb59c7b70fbb7d1",
+      "tests/e2e/openai.test.ts": "e3bb32369da53c86339255c5004843ce6e3993a41e55fb9783f3c22fdc224f58",
+      "tests/fixtures/consumer-types.ts": "148fede6cc25a59bc05a786599e09ed461bce30202d7db6e6382e6c62c436105",
+      "tests/fixtures/openai-types.ts": "7054a3f25c9b56afb82f53718df89e0a45fb6bba203251f597670ad25d5d90b7",
+      "tests/fixtures/vitest-driver.ts": "cf425898a046bd7dffca19b96bec4e116bcdfd2a5d954b80ecfca3b00622d82d",
+      "tests/fixtures/vitest-receipt-reporter.ts": "aa01aad5c3c7c124b98b47eecd741092860d2ee4d7e9ffc3364c2ecdfe8794cc",
+      "tests/helpers/authored-app.mjs": "7e5aab076b82d1fa2a2887e8e6d437c80959816486958b8cea093dbb16107c60",
+      "tests/helpers/authored-playwright.mjs": "b472ac823303d920af119812b7807ed5a0a9aeff38454181fc4f6c100f6bed87",
+      "tests/helpers/authored-responses.mjs": "64c1a81a7b4dfb9b3df44a34192ef60d0c0edd916e71d9e4d1ca0cbb3323357e",
+      "tests/integration/vitest-fixture.test.ts": "ceaa79e3a481d75419c3563e44fdadf08fa7915ec8b822f4d5bb4fa8c77282d3",
+      "tests/integration/vitest-negative.test.ts": "8457a85d8eb0ee32ea0f0594523cca757230a6d1ebdad8d41a705b0ad81841dc",
+      "tests/scripts/assert-vitest-result.mjs": "90226522744e8da49798e9ebcbd6ddb0975eaf5aad226104258f99d5172fda3e",
+      "tests/scripts/run-consumer-suites.mjs": "ca4a395e43ed3bc2737757b31ece1a02a32c80e580543297ddab0a7b9cbb101b",
+      "tests/unit/openai.test.mjs": "87c0f76ca383fb2782ec3be39834b9ca847dad52bb4b4cad50eaa51f934bd188",
+      "tests/unit/playwright.test.mjs": "45ff1cc49772fdaa41d89e20f6e5a483b3d83b524d42b3ca4def37bc6089abb2",
+      "tests/unit/session.test.mjs": "a3a06d748be65fa46227e58917faa779b2d740e78f8b26d3c5a0304ccab48210",
+      "tests/unit/vitest.test.mjs": "868e4e1b21143616448be7d7d01a201268be2dc978043370e64689d252f6e328",
+      "types/index.d.ts": "7f0decf99605a1e1124424360d8af0dc6f65a161e87be72013e298437203a3b6",
+      "types/openai.d.ts": "094617c48aab2fad1db95f3573adff85aab7f8338454c47419bef284e2865499",
+      "types/playwright.d.ts": "eea9033da2940ddb89933a16ecc367196573fb5e4d5c340ec1bbd4336bedcfc6",
+      "types/vitest.d.ts": "0149869ff1514b7a7d1e39f3bac9b4eeffcae60f1304aa61a4f60b44206216af"
+    }
+  },
+  "run": {
+    "id": 43151909578,
+    "url": "https://github.com/alvarovillalbaa/traverse/actions/runs/43151909578",
+    "attempt": 1,
+    "head": "e2b43136d0241b5adba3ace3084323705a8eb3a7",
+    "status": "completed",
+    "conclusion": "success",
+    "created": "2026-11-12T04:00:26Z",
+    "updated": "2026-11-12T04:01:09Z",
+    "job": {
+      "id": 130962829077,
+      "run_id": 43151909578,
+      "workflow_name": "Temporary Traverse OpenAI acceptance",
+      "head_branch": "qa/traverse-openai-20261112-1",
+      "run_url": "https://api.github.com/repos/alvarovillalbaa/traverse/actions/runs/43151909578",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVbCOz88AAAAeff4vFQ",
+      "head_sha": "e2b43136d0241b5adba3ace3084323705a8eb3a7",
+      "url": "https://api.github.com/repos/alvarovillalbaa/traverse/actions/jobs/130962829077",
+      "html_url": "https://github.com/alvarovillalbaa/traverse/actions/runs/43151909578/job/130962829077",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-12T04:00:27Z",
+      "started_at": "2026-11-12T04:00:29Z",
+      "completed_at": "2026-11-12T04:01:09Z",
+      "name": "focused",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-12T04:00:29Z",
+          "completed_at": "2026-11-12T04:00:30Z"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-12T04:00:30Z",
+          "completed_at": "2026-11-12T04:00:32Z"
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-12T04:00:32Z",
+          "completed_at": "2026-11-12T04:00:36Z"
+        },
+        {
+          "name": "Focused package, unit, declaration and Chromium checks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-12T04:00:36Z",
+          "completed_at": "2026-11-12T04:01:04Z"
+        },
+        {
+          "name": "Retire exact temporary controls",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-12T04:01:04Z",
+          "completed_at": "2026-11-12T04:01:06Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-12T04:01:06Z",
+          "completed_at": "2026-11-12T04:01:06Z"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-12T04:01:06Z",
+          "completed_at": "2026-11-12T04:01:06Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-12T04:01:06Z",
+          "completed_at": "2026-11-12T04:01:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/alvarovillalbaa/traverse/check-runs/130962829077",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000005787,
+      "runner_name": "GitHub Actions 1000005787",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  },
+  "independentQaRefs": [],
+  "limits": {
+    "realModelCalls": 0,
+    "legacySuitesExecuted": 0,
+    "npmRegistryPublication": false,
+    "liveProviderQuality": "unverified",
+    "localRuntimeExecution": false
+  },
+  "package": {
+    "kind": "package",
+    "version": "0.2.0",
+    "sha256": "b79d9259d6fd40cf0a18fc185ba449be459fe8803d2700822f0440f240e48ebb",
+    "bytes": 29478,
+    "files": [
+      {
+        "path": "AGENTS.md",
+        "bytes": 1823,
+        "sha256": "5b45de4c6efcf2ed8d67a8825705a73eb2718adfaf4480a5946360179f6a7a5a"
+      },
+      {
+        "path": "LICENSE",
+        "bytes": 1078,
+        "sha256": "6e3ae862a0f98e9f377f98f71fd86160932dad7186416f5509a335703c6fe3b5"
+      },
+      {
+        "path": "README.md",
+        "bytes": 10744,
+        "sha256": "b72569fbf3cdc7e1c13419a23f7d8fd3a2ef75cf189e119d1ae9392626f9e41a"
+      },
+      {
+        "path": "docs/acceptance.md",
+        "bytes": 3031,
+        "sha256": "7380272a46ce5103cfebaf3bfe227b4316dfe345b7bd600c33eafebea407b3a5"
+      },
+      {
+        "path": "docs/architecture.md",
+        "bytes": 7814,
+        "sha256": "790a3280d26ab0258613fff424176f1b0adaa2f5c95c1c8d7e81136e96ef0963"
+      },
+      {
+        "path": "docs/references.md",
+        "bytes": 3255,
+        "sha256": "694814ac41f7598390f24604f1fc5753790a7dc09c37a82852afb4a7bce8a806"
+      },
+      {
+        "path": "docs/spec.md",
+        "bytes": 3439,
+        "sha256": "535430ee3858dba1b520aef16621e414a999d06caee5d08e5bc0749cf0e4bedb"
+      },
+      {
+        "path": "examples/app/index.html",
+        "bytes": 1497,
+        "sha256": "8cfbef4dcc1bc2ff164ff46b2ed84bf900fd738c6ad299923de2ff066ef8000f"
+      },
+      {
+        "path": "examples/journeys.test.ts",
+        "bytes": 2256,
+        "sha256": "39bd320b7e16dab72d48d4670fd8d359f0d2bd7e9dcf7909df85a9b8e92e8709"
+      },
+      {
+        "path": "examples/server.mjs",
+        "bytes": 1007,
+        "sha256": "b739f6313cc934d4a0fdf961348596dc63191a6abb85d42d76e07129e5491e72"
+      },
+      {
+        "path": "package.json",
+        "bytes": 989,
+        "sha256": "4eb48af4c96e231b434e14a8db0290483a4a75e8978053ab3bba2f7f4c6c505c"
+      },
+      {
+        "path": "scripts/check.mjs",
+        "bytes": 3304,
+        "sha256": "90c2da2e653fadc67d45f83951b786acd004e30e3ed8e36d2135a13af2486eb7"
+      },
+      {
+        "path": "src/index.js",
+        "bytes": 146,
+        "sha256": "9a53ecd8fe678fe62264fb26d0d0195a3f9261c101fc7ff9c62e7d5d8316b1dd"
+      },
+      {
+        "path": "src/openai.js",
+        "bytes": 7468,
+        "sha256": "ef6deb375434d307294c824b0bbfcae7c485cace3a7e07830630d68d83b424b7"
+      },
+      {
+        "path": "src/playwright.js",
+        "bytes": 11787,
+        "sha256": "5aaede045ff3f4d021504f4cd40bc4df92366fdd82d04656e546cb438bf09b2f"
+      },
+      {
+        "path": "src/prompts/openai-v1.js",
+        "bytes": 1102,
+        "sha256": "d8374ddfc0d756e6eb7a094ecb4c150754c00df431c7bf0a7d47833a913d7e66"
+      },
+      {
+        "path": "src/protocol.js",
+        "bytes": 5720,
+        "sha256": "2a026c15fdd081942437d6a5b91de7c94189f316e91d1f0845d7b1a00e8d47dd"
+      },
+      {
+        "path": "src/replay.js",
+        "bytes": 4253,
+        "sha256": "a26c78523cfbef6c1fa23ef6d081672a12915b230df560117b4c865037594e05"
+      },
+      {
+        "path": "src/session.js",
+        "bytes": 17504,
+        "sha256": "94100e8617b1edf8c61336a3aefecba59d52a2f635b7aa7f7dd01d2bc73094d1"
+      },
+      {
+        "path": "src/vitest.js",
+        "bytes": 2808,
+        "sha256": "d5e233976f7c3cb05b7edd01561ab2f8516a31a6a4d420f5234e3a88188fc427"
+      },
+      {
+        "path": "types/index.d.ts",
+        "bytes": 3509,
+        "sha256": "7f0decf99605a1e1124424360d8af0dc6f65a161e87be72013e298437203a3b6"
+      },
+      {
+        "path": "types/openai.d.ts",
+        "bytes": 899,
+        "sha256": "094617c48aab2fad1db95f3573adff85aab7f8338454c47419bef284e2865499"
+      },
+      {
+        "path": "types/playwright.d.ts",
+        "bytes": 507,
+        "sha256": "eea9033da2940ddb89933a16ecc367196573fb5e4d5c340ec1bbd4336bedcfc6"
+      },
+      {
+        "path": "types/vitest.d.ts",
+        "bytes": 854,
+        "sha256": "0149869ff1514b7a7d1e39f3bac9b4eeffcae60f1304aa61a4f60b44206216af"
+      }
+    ]
+  },
+  "unit": {
+    "tests": 26,
+    "passed": 26,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "cases": [
+      "construction and the main entrypoint perform no provider I/O or credential discovery",
+      "invalid options are rejected before any fetch, including accessors and unknown fields",
+      "endpoints reject credentials, query, fragment, non-loopback HTTP and implicit HTTP permission",
+      "the request explicitly sets model, storage, schema, limits, authorization and redirect policy",
+      "actions use the runtime callback sequentially and send its fresh observation next",
+      "all public target kinds and fill/press actions retain their exact values",
+      "invalid selectors, scripts, keys and irrelevant fields never dispatch an action",
+      "assertions admit only explicit semantic verdicts and send a mutation-free schema",
+      "assertion actions and mode-inappropriate verdicts fail closed",
+      "completed provider transport never substitutes for a semantic success",
+      "refusal, incomplete, failed and provider error responses do not pass",
+      "ambiguous messages, content and non-assistant output are rejected",
+      "a reasoning item before one complete assistant decision is accepted",
+      "HTTP failures, redirects and wrong content types receive no retry and expose no body",
+      "malformed JSON, malformed decision JSON and invalid UTF-8 are finite errors",
+      "response bytes are capped while streaming even without content-length",
+      "an oversized declared body is cancelled without reading it",
+      "request exhaustion reports blocked without retries or claimed success",
+      "already-aborted work never sends a request or dispatches an action",
+      "cancellation fences a late fetch and disposes its body even when transport ignores abort",
+      "cancellation interrupts a pending response read and cancels the stream",
+      "aborting at the transport boundary prevents the returned action",
+      "cancellation after an action starts prevents another provider request",
+      "opaque transport failures are redacted while runtime action errors retain their code",
+      "oversized observations fail before transport, including fresh action observations",
+      "real session action limits remain sticky and cleanup preserves the failed verdict"
+    ],
+    "tapSHA256": "44677389e9f7282f8180c6ccb95efa7cb717b09eb9b0011573204a822c733817"
+  },
+  "browser": {
+    "numTotalTestSuites": 1,
+    "numPassedTestSuites": 1,
+    "numFailedTestSuites": 0,
+    "numPendingTestSuites": 0,
+    "numTotalTests": 2,
+    "numPassedTests": 2,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0,
+    "snapshot": {
+      "added": 0,
+      "failure": false,
+      "filesAdded": 0,
+      "filesRemoved": 0,
+      "filesRemovedList": [],
+      "filesUnmatched": 0,
+      "filesUpdated": 0,
+      "matched": 0,
+      "total": 0,
+      "unchecked": 0,
+      "uncheckedKeysByFile": [],
+      "unmatched": 0,
+      "updated": 0,
+      "didUpdate": false
+    },
+    "startTime": 1794456063533,
+    "success": true,
+    "testResults": [
+      {
+        "assertionResults": [
+          {
+            "ancestorTitles": [],
+            "fullName": "Responses HTTP actions change Chromium and exact checks qualify provider-free replay",
+            "status": "passed",
+            "title": "Responses HTTP actions change Chromium and exact checks qualify provider-free replay",
+            "duration": 302.326008,
+            "failureMessages": [],
+            "meta": {}
+          },
+          {
+            "ancestorTitles": [],
+            "fullName": "Responses assertions execute live without mutations and preserve an explicit failed verdict",
+            "status": "passed",
+            "title": "Responses assertions execute live without mutations and preserve an explicit failed verdict",
+            "duration": 83.31863199999998,
+            "failureMessages": [],
+            "meta": {}
+          }
+        ],
+        "startTime": 1794456064132,
+        "endTime": 1794456064518.3186,
+        "status": "passed",
+        "message": "",
+        "name": "/home/runner/work/_temp/traverse-openai-43151909578/tests/e2e/openai.test.ts"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "kind": "command",
+      "label": "pack",
+      "command": "npm",
+      "args": [
+        "pack",
+        "--ignore-scripts",
+        "--json",
+        "--pack-destination",
+        "/home/runner/work/_temp/traverse-openai-43151909578"
+      ],
+      "exit": 0,
+      "signal": null,
+      "error": null,
+      "stdoutBytes": 2732,
+      "stderrBytes": 0,
+      "stdoutSHA256": "c09b185aa4a75115b995aee3a835e5fc8d83dde151383fcba424d8124cf32606",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "command",
+      "label": "lock",
+      "command": "npm",
+      "args": [
+        "install",
+        "--package-lock-only",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--loglevel=error"
+      ],
+      "exit": 0,
+      "signal": null,
+      "error": null,
+      "stdoutBytes": 18,
+      "stderrBytes": 0,
+      "stdoutSHA256": "96ac9cdcdcf0b44f3777a125563513c77371f535c603331a4cae91ec825d3002",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "command",
+      "label": "install",
+      "command": "npm",
+      "args": [
+        "ci",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund",
+        "--loglevel=error"
+      ],
+      "exit": 0,
+      "signal": null,
+      "error": null,
+      "stdoutBytes": 28,
+      "stderrBytes": 0,
+      "stdoutSHA256": "4035f68cb46ca2f1e9d5eb3493f656209ab0439194cb48439fb0672389d4ee16",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "command",
+      "label": "openai-unit",
+      "command": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "args": [
+        "--test",
+        "--test-reporter=tap",
+        "tests/unit/openai.test.mjs"
+      ],
+      "exit": 0,
+      "signal": null,
+      "error": null,
+      "stdoutBytes": 5893,
+      "stderrBytes": 0,
+      "stdoutSHA256": "44677389e9f7282f8180c6ccb95efa7cb717b09eb9b0011573204a822c733817",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "command",
+      "label": "types",
+      "command": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "args": [
+        "node_modules/typescript/bin/tsc",
+        "--project",
+        "tsconfig.json"
+      ],
+      "exit": 0,
+      "signal": null,
+      "error": null,
+      "stdoutBytes": 0,
+      "stderrBytes": 0,
+      "stdoutSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "kind": "command",
+      "label": "chromium-install",
+      "command": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "args": [
+        "node_modules/playwright/cli.js",
+        "install",
+        "--with-deps",
+        "--only-shell",
+        "chromium"
+      ],
+      "exit": 0,
+      "signal": null,
+      "error": null,
+      "stdoutBytes": 14210,
+      "stderrBytes": 237,
+      "stdoutSHA256": "30d1f291715f8d2eb7338644d5f8b7101b180ce10e135e7bb90e2de495f6d4be",
+      "stderrSHA256": "3b419c69ff321ee6851fa5489a2bb0c9a2ef093815a709dbd05391f89767267f"
+    },
+    {
+      "kind": "command",
+      "label": "openai-browser",
+      "command": "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "args": [
+        "node_modules/vitest/vitest.mjs",
+        "run"
+      ],
+      "exit": 0,
+      "signal": null,
+      "error": null,
+      "stdoutBytes": 88,
+      "stderrBytes": 0,
+      "stdoutSHA256": "5bbada92bde6ea2bbd1d13531c3c6214f3f90ed76f6b853167e1388312220e2e",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "consumerLock": {
+    "path": "openai-consumer-package-lock.json",
+    "sha256": "473f35fa9e547ab3727771530c108ac6246ccaab0b9b16a84785cf57da9b6c29"
+  },
+  "cleanup": {
+    "kind": "owned-consumer-cleanup",
+    "removed": true
+  },
+  "controlRetirement": {
+    "kind": "control-retirement",
+    "run": 43151909578,
+    "workflow": 415495768,
+    "path": ".github/workflows/traverse-openai-20261112.yml",
+    "state": "disabled_manually",
+    "branch": "qa/traverse-openai-20261112-1",
+    "deletedHead": "e2b43136d0241b5adba3ace3084323705a8eb3a7",
+    "exactRefAbsent": true
+  },
+  "evidence": {
+    "path": "openai-checks.log",
+    "bytes": 106611,
+    "sha256": "0c10e0984d2b05653eab0d9a6e062554535fd2a405acd2cc329031036e3c1113",
+    "completeJobLog": true
+  },
+  "workflowStateProof": "immutable retirement script GET/readback in complete job log; QA prefix independently empty",
+  "postRunEdition": {
+    "changedQualifiedInputs": [
+      "scripts/check-openai-consumer.mjs",
+      "tests/README.md"
+    ],
+    "controllerGuard": {
+      "path": "scripts/check-openai-consumer.mjs",
+      "sha256": "3ca88a366d5ef7d57154243fa76c86c6e688a6f5c3227aae6a81eff7c57a7049",
+      "change": "ownership flag gates error inspection and finally removal after successful mkdir",
+      "verification": "syntax, relative imports, local document references and git diff --check; not executed"
+    },
+    "runtimeDeclarationsAndCaseBodiesUnchanged": true,
+    "activeWorkflowFiles": 0
+  }
+}

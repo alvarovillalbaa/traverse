@@ -8,6 +8,10 @@ including eight real Chromium journeys. Package delivery is through this
 repository. The [owning contract](docs/spec.md) preserves the complete delivery
 requirements and proof boundaries.
 
+The optional 0.2.0 OpenAI executor also has [26 unit passes, two real Chromium
+passes and a scoped installed type check](docs/results/2026/11-12/openai-checks.md),
+using authored Responses decisions without live model calls.
+
 Traverse uses your existing Vitest and Playwright installations. It creates one
 fresh browser context per session, bounds operations and cleans up that context.
 Vitest keeps collection, retries, test verdicts and reporting. No model, account,
@@ -145,8 +149,8 @@ Semantic assertions propose no actions and always execute live.
 credentials, queries and fragments in that URL are rejected. Redirects are not
 followed. `allowLocalHTTP:true` permits HTTP only to 127.0.0.1 or [::1] for
 authored fixtures. An explicit `fetch` override is available for controlled
-transports. This profile has [focused new checks](docs/proposals/openai-checks.md)
-prepared; no real model execution or inference quality is claimed.
+transports. Its [focused new checks passed](docs/results/2026/11-12/openai-checks.md);
+no real model execution or inference quality is claimed.
 
 ## Replay after verification
 
