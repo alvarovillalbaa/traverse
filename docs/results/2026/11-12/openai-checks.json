@@ -546,9 +546,12 @@
     "exactRefAbsent": true
   },
   "evidence": {
-    "path": "openai-checks.log",
-    "bytes": 106611,
-    "sha256": "0c10e0984d2b05653eab0d9a6e062554535fd2a405acd2cc329031036e3c1113",
+    "path": "openai-checks.log.json",
+    "format": "lossless UTF-8 text in JSON",
+    "encodedBytes": 117853,
+    "encodedSHA256": "5821452e7e0f3a2d0a4017e70971d28b6bd7738197a0e7612d610adb5dad2e2d",
+    "decodedBytes": 106611,
+    "decodedSHA256": "0c10e0984d2b05653eab0d9a6e062554535fd2a405acd2cc329031036e3c1113",
     "completeJobLog": true
   },
   "workflowStateProof": "immutable retirement script GET/readback in complete job log; QA prefix independently empty",

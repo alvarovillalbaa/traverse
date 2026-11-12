@@ -15,8 +15,12 @@ bytes. Its 29,478-byte archive SHA-256 is
 `b79d9259d6fd40cf0a18fc185ba449be459fe8803d2700822f0440f240e48ebb`.
 The [complete receipt](openai-checks.json) records package-file hashes, input
 hashes, all unit/browser names, command exits and remote terminal readback.
-The [complete job log](openai-checks.log) retains stdout/stderr, TAP and browser
-JSON; SHA-256 `0c10e0984d2b05653eab0d9a6e062554535fd2a405acd2cc329031036e3c1113`.
+The [complete job log](openai-checks.log.json) retains stdout/stderr, TAP and
+browser JSON as losslessly encoded UTF-8 text. Decoded SHA-256 is
+`0c10e0984d2b05653eab0d9a6e062554535fd2a405acd2cc329031036e3c1113`.
+JSON encoding preserves GitHub's original trailing spaces without introducing
+whitespace errors into the repository. The receipt records both encoded and
+decoded sizes/hashes; no original log content was normalized or discarded.
 The exact [consumer lock](openai-consumer-package-lock.json) has SHA-256
 `473f35fa9e547ab3727771530c108ac6246ccaab0b9b16a84785cf57da9b6c29`.
 
