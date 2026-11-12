@@ -17,12 +17,10 @@ classify as a database tier, and no production/staging target or data access.
 The exact exception to a database-oriented E2E tier profile is explicit in the
 [consumer proposal](../docs/proposals/consumer-checks.md).
 
-Every suite remains unexecuted pending its owning approval. No default CI is
-installed; the proposed consumer is outside the checkout under `RUNNER_TEMP`.
-
-The historical 45/17 results are now recorded in
-[acceptance](../docs/acceptance.md); the preceding proposal wording remains
-historical. The new optional OpenAI profile has its separate
-[26-unit/two-browser scope](../docs/proposals/openai-checks.md). Its browser
-fixture uses a real loopback HTTP transport and Chromium with authored
-decisions, without any live model calls. The old suites are not selected again.
+Historical 45/17 results are recorded in [acceptance](../docs/acceptance.md).
+The optional OpenAI profile's separate
+[26-unit/two-browser scope](../docs/proposals/openai-checks.md) also
+[passed](../docs/results/2026/11-12/openai-checks.md). Its browser fixture uses
+a real loopback HTTP transport and Chromium with authored decisions, without
+live model calls. The old suites were not selected again. No default CI remains;
+the temporary workflow was disabled and its QA ref and consumer directory retired.

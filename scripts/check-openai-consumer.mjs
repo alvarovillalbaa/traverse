@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process';
 // Temporary public CI only. Never import this controller from the product.
 const root = fileURLToPath(new URL('../', import.meta.url));
 const sha256 = data => createHash('sha256').update(data).digest('hex');
-let consumer, phase = 'ownership';
+let consumer, ownsConsumer = false, phase = 'ownership';
 const commands = [];
 function run(label, command, args, cwd, timeout = 120000) {
   const result = spawnSync(command, args, { cwd, encoding: 'utf8', timeout, killSignal: 'SIGKILL', detached: true, maxBuffer: 2 * 1024 * 1024,
@@ -28,6 +28,7 @@ try {
   consumer = resolve(temp, `traverse-openai-${process.env.GITHUB_RUN_ID}`);
   if (dirname(consumer) !== temp || basename(consumer) !== `traverse-openai-${process.env.GITHUB_RUN_ID}` || existsSync(consumer)) throw new Error();
   mkdirSync(consumer, { mode: 0o700 });
+  ownsConsumer = true;
   phase = 'package';
   const packed = JSON.parse(run('pack', 'npm', ['pack', '--ignore-scripts', '--json', '--pack-destination', consumer], root, 60000));
   if (packed.length !== 1 || !/^[a-z0-9.-]+\.tgz$/.test(packed[0].filename)) throw new Error();
@@ -75,12 +76,12 @@ fileParallelism:false,isolate:true,retry:0,testTimeout:10000,hookTimeout:30000,r
   console.log(JSON.stringify({ kind: 'browser', receipt: browser }));
   console.log(JSON.stringify({ kind: 'accepted', unit: 26, chromium: 2, types: true, liveModelCalls: 0, legacySuitesExecuted: 0 }));
 } catch {
-  if (consumer && existsSync(resolve(consumer, 'browser.json'))) {
+  if (ownsConsumer && existsSync(resolve(consumer, 'browser.json'))) {
     console.log(JSON.stringify({ kind: 'failed-browser-receipt', content: readFileSync(resolve(consumer, 'browser.json'), 'utf8') }));
   }
   console.log(JSON.stringify({ kind: 'failed', phase, completedCommands: commands.length })); process.exitCode = 1;
 } finally {
-  if (consumer && existsSync(consumer)) {
+  if (ownsConsumer && existsSync(consumer)) {
     rmSync(consumer, { recursive: true });
     if (existsSync(consumer)) process.exitCode = 1;
     console.log(JSON.stringify({ kind: 'owned-consumer-cleanup', removed: !existsSync(consumer) }));
