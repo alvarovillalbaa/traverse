@@ -2,7 +2,7 @@
 
 Browser journeys in Vitest, with exact checks and optional agent steps.
 
-**Verified web profile.** Traverse has [45 passing core checks](docs/results/2026/10-31/local-checks.md)
+**Verified core web profile.** Traverse has [45 passing core checks](docs/results/2026/10-31/local-checks.md)
 and [17 accepted installed-consumer contracts](docs/results/2026/10-31/consumer-checks.md),
 including eight real Chromium journeys. Package delivery is through this
 repository. The [owning contract](docs/spec.md) preserves the complete delivery
@@ -105,6 +105,49 @@ and inference spending; runtime action limits do not meter opaque model calls.
 Treat observations as untrusted app data. Late results cannot relax the runtime's
 limits or continue dispatching actions after the step ended.
 
+### Optional OpenAI transport (0.2.0)
+
+```ts
+import { createOpenAIExecutor } from '@alvarovillalbaa/traverse/openai';
+
+const executor = createOpenAIExecutor({
+  apiKey: yourExplicitKey,
+  model: yourExplicitStructuredOutputsModel,
+  maxRequests: 6,
+  maxOutputTokens: 512,
+});
+// Pass executor to openSession or createUiFixture, alongside createDriver.
+```
+
+This opt-in adapter uses the Responses REST API through the host's `fetch`.
+Importing or constructing it performs no I/O. It discovers no key, model or
+account. Each request sends the goal and current bounded URL/ARIA observation
+to the selected provider; choose an app/data scope suitable for that transfer.
+Observations remain untrusted data. Versioned instructions reduce ambiguity
+but do not establish prompt-injection resistance or model quality.
+
+The defaults are six requests per executor invocation and 512 output tokens per
+request (including any reasoning tokens); configurable maxima are 20 and 4096.
+There are no retries, hidden history or provider tools. Exhaustion returns
+`blocked`; runtime step/action/session limits still apply. These are request
+and output bounds, **not a dollar spending guarantee**. A model that needs more
+output budget may return incomplete; that fails rather than passing a step.
+
+Requests use `store:false` and `stream:false`; this does not promise zero
+provider retention. Strict structured decisions are revalidated locally.
+Responses over 64 KiB, refusals, incomplete results, ambiguous output, redirects,
+HTTP failures and malformed decisions fail with finite errors. Cancellation is
+passed to transport and fences late actions. A provider's `done` verdict still
+needs your deterministic check to verify the app outcome and qualify replay.
+Semantic assertions propose no actions and always execute live.
+
+`endpoint` optionally selects a caller-owned HTTPS Responses-compatible URL;
+credentials, queries and fragments in that URL are rejected. Redirects are not
+followed. `allowLocalHTTP:true` permits HTTP only to 127.0.0.1 or [::1] for
+authored fixtures. An explicit `fetch` override is available for controlled
+transports. This profile has [focused new checks](docs/proposals/openai-checks.md)
+prepared; no real model execution or inference quality is claimed.
+
 ## Replay after verification
 
 Pass `replay:{scope,store:createMemoryReplayStore()}` to opt in. Choose a scope
@@ -153,8 +196,8 @@ TypeScript 5.9.3. Its seventeen contracts comprise three lifecycle passes, six
 validated intentional failures and eight browser passes. Reproduce it using
 the receipt's immutable source `6364d80c6bd8ba14c0afdc4c2e87769e993e7b09`;
 the consumer controller verifies that revision's frozen fingerprints and lock.
-This later README/acceptance edition changes documentation. Runtime modules,
-declarations and case bodies retain their checked bytes. Model quality and
+The 0.2.0 optional adapter has its own focused scope; the existing core modules,
+declarations and historical case bodies retain their checked bytes. Model quality and
 authenticated services require separate qualification.
 
 ## Files and provenance

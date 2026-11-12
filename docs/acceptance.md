@@ -1,6 +1,6 @@
 # Acceptance status
 
-Last updated: 2026-10-31
+Last updated: 2026-11-12
 
 The [owning brief](spec.md) requires a working companion, not only authored
 contracts. The [45-case receipt](results/2026/10-31/local-checks.md) records
@@ -17,6 +17,7 @@ Chromium journeys. The original source/publication receipts remain history.
 | Vitest fixture | Real runner setup/use/body failure/timeout/cleanup reporting | Five boundary cases passed; actual runner accepted three lifecycle and six intentional-failure contracts |
 | Real journey and replay | Authored app executes; checked second attempt uses no executor | Installed public adapter verified checked replay and owned context isolation |
 | Optional executor | Live user-supplied provider behavior, if selected | No provider or account selected; scripted fixtures are not model proof |
+| Optional 0.2.0 OpenAI transport | Focused wire/runtime/installed consumer checks | 26 unit and two Chromium cases prepared in the [new scope](proposals/openai-checks.md); execution pending, no live model proof |
 | Portable package and GitHub | Export/declaration/artifact inspection and immutable remote readback | Three public entrypoints typechecked in a clean installed consumer; 21-file archive and exact lock verified at the recorded source |
 
 The installed package is qualified at immutable

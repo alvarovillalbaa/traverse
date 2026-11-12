@@ -1,6 +1,6 @@
 {
   "name": "@alvarovillalbaa/traverse",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Isolated browser journeys, exact checks and optional agent steps for Vitest.",
   "type": "module",
   "license": "MIT",
@@ -8,7 +8,8 @@
   "exports": {
     ".": { "types": "./types/index.d.ts", "import": "./src/index.js" },
     "./playwright": { "types": "./types/playwright.d.ts", "import": "./src/playwright.js" },
-    "./vitest": { "types": "./types/vitest.d.ts", "import": "./src/vitest.js" }
+    "./vitest": { "types": "./types/vitest.d.ts", "import": "./src/vitest.js" },
+    "./openai": { "types": "./types/openai.d.ts", "import": "./src/openai.js" }
   },
   "files": ["src", "types", "examples", "scripts/check.mjs", "docs/spec.md", "docs/architecture.md", "docs/references.md", "docs/acceptance.md", "AGENTS.md", "README.md", "LICENSE"],
   "scripts": {
