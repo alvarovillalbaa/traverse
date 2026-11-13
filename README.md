@@ -4,8 +4,9 @@ Browser journeys in Vitest, with exact checks and optional agent steps.
 
 **Verified core web profile.** Traverse has [45 passing core checks](docs/results/2026/10-31/local-checks.md)
 and [17 accepted installed-consumer contracts](docs/results/2026/10-31/consumer-checks.md),
-including eight real Chromium journeys. Package delivery is through this
-repository. The [owning contract](docs/spec.md) preserves the complete delivery
+including eight real Chromium journeys. The [0.2.0 candidate package](https://github.com/alvarovillalbaa/traverse/releases/tag/v0.2.0-candidate.1)
+is downloadable, with [verified anonymous installation](docs/results/2026/11-13/package-delivery.md).
+The [owning contract](docs/spec.md) preserves the complete delivery
 requirements and proof boundaries.
 
 The optional 0.2.0 OpenAI executor also has [26 unit passes, two real Chromium
@@ -24,6 +25,14 @@ Node.js 24+; consumer-supplied Vitest 4 and Playwright 1.57 APIs are the inspect
 integration profile. Install the source package into your existing test project
 only after reviewing your dependency changes. Traverse has no runtime dependencies.
 Browser binaries and third-party tools are not included or downloaded.
+
+```sh
+npm install --ignore-scripts https://github.com/alvarovillalbaa/traverse/releases/download/v0.2.0-candidate.1/alvarovillalbaa-traverse-0.2.0.tgz
+```
+
+This installs the GitHub candidate; this delivery does not publish to npm. The
+archive preserves its qualified documentation snapshot. Current linked receipts
+record later acceptance without rebuilding the archive.
 
 ```ts
 import { test as base } from 'vitest';

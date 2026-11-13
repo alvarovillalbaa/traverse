@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "kind": "traverse.github-candidate-publication",
+  "release": {
+    "id": 444126553,
+    "url": "https://github.com/alvarovillalbaa/traverse/releases/tag/v0.2.0-candidate.1",
+    "tag": "v0.2.0-candidate.1",
+    "source": "ff7fdd20424d6582eedc8713f1ca7a382acce5aa",
+    "publishedAt": "2026-11-13T11:05:19Z",
+    "assets": [
+      {
+        "id": 743332166,
+        "name": "alvarovillalbaa-traverse-0.2.0.tgz",
+        "size": 29478,
+        "digest": "sha256:b79d9259d6fd40cf0a18fc185ba449be459fe8803d2700822f0440f240e48ebb",
+        "url": "https://github.com/alvarovillalbaa/traverse/releases/download/v0.2.0-candidate.1/alvarovillalbaa-traverse-0.2.0.tgz"
+      },
+      {
+        "id": 743332247,
+        "name": "SHA256SUMS",
+        "size": 193,
+        "digest": "sha256:73cbb619e02f5d05ddf1b13e908b0a863e7e815683c72ec9197c72c8d05ed858",
+        "url": "https://github.com/alvarovillalbaa/traverse/releases/download/v0.2.0-candidate.1/SHA256SUMS"
+      },
+      {
+        "id": 743332222,
+        "name": "traverse-0.2.0-files.json",
+        "size": 3631,
+        "digest": "sha256:f022b3a3a4fd7f9dc5ed353ee91628f82adcde51ce9b0ac0d1d3b1a645929aaa",
+        "url": "https://github.com/alvarovillalbaa/traverse/releases/download/v0.2.0-candidate.1/traverse-0.2.0-files.json"
+      }
+    ]
+  },
+  "controls": {
+    "sourceCommit": "eec0ba83099607244599315761e9cba4b1c3518e",
+    "pack": {
+      "activation": "9cb7ba614e51f8680d80d48d451c6b917b83182c",
+      "runId": 43413669599,
+      "jobId": 131846106238,
+      "workflowId": 417174700,
+      "branch": "qa/traverse-package-20261113-pack-1",
+      "state": "disabled_manually",
+      "refAbsent": true,
+      "originalRetained": true
+    },
+    "public": {
+      "activation": "850eac80407aa268028577a7cf0f4d3c4d60922b",
+      "branch": "qa/traverse-package-20261113-public-1",
+      "runId": 43414350393,
+      "jobId": 131848356364,
+      "workflowId": 417178678,
+      "state": "disabled_manually",
+      "refAbsent": true,
+      "originalRetained": true
+    }
+  },
+  "pack": {
+    "artifactId": 14030073467,
+    "artifactZipBytes": 65786,
+    "artifactZipSha256": "06aa65277c5662dd2ea939a4a500ca55e1586402536374141ebe88b303ed1071",
+    "receiptBytes": 145814,
+    "receiptSha256": "06766ab5c9909ec1e453b5f2f2fe052c4d984cbc5de4c88a7937510ffe1f66ca",
+    "commands": 3,
+    "completeStreams": 6,
+    "proofRemovedAfterUpload": true
+  },
+  "public": {
+    "artifactId": 14030468844,
+    "artifactZipBytes": 68480,
+    "artifactZipSha256": "c9f3bc05864ac11bfb1cb61b2c5106651abe26f4edda05e45be6dc9642a52d04",
+    "receiptBytes": 153658,
+    "receiptSha256": "c1d43bf61944956c7a333d86974c4d58f92a76737d002dd383ff8ab05e3953ea",
+    "commands": 4,
+    "completeStreams": 8,
+    "proofRemovedAfterUpload": true,
+    "anonymousArchiveHashMatched": true,
+    "installedMembers": 24,
+    "entryPoints": 4,
+    "exportedFunctions": 6
+  },
+  "nativeCliFailure": {
+    "command": "gh release create",
+    "exitCode": 1,
+    "observedOutput": "error connecting to api.github.com\ncheck your internet connection or https://githubstatus.com\n",
+    "reconciliation": "Connected public releases and authenticated gh api both returned empty; no release had been created. Existing gh api then created one draft, uploaded three exact assets, reviewed them and published once."
+  },
+  "legacyRuntimeCasesReexecuted": 0,
+  "realModelCalls": 0,
+  "npmRegistryPublication": false,
+  "limits": [
+    "Public archive/install/import delivery only; prior Vitest/Chromium/runtime qualification stays at its original sources.",
+    "Authored Responses decisions do not establish live-model compatibility or inference quality.",
+    "Direct command group and owned-root/proof cleanup are not whole-host or every detached-child attestation."
+  ]
+}

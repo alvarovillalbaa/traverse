@@ -37,3 +37,12 @@ rerun closed application/browser cases. No registry/provider/account/paid action
 runtime dependency/version/lock/prompt change or local heavy execution. Native
 Storage Guard2.2/34GiB fails. Preserve original failures/streams/source guards,
 remove only owned scratch/uploaded proof and retire exact temporary controls.
+
+The [package packet](docs/results/2026/11-13/package-delivery.md) is CLOSED.
+The original qualified29,478-byte tgz is public under v0.2.0-candidate.1 atff7fdd20.
+Exact reproduction and anonymous fresh offline install/four exports passed at
+eec0ba83; 14 original streams/eight guards, both scratch and uploaded-proof
+removals verify. Both workflows disabled and exact QA refs deleted/read back.
+Do not repeat this accepted publication profile or mutate its tag/assets.
+Keep all old runtime cases, versioned prompt, archive and failed CLI outcome
+intact. Npm registry and real model quality remain separate; portfolio unfinished.

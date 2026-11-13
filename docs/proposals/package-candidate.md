@@ -1,5 +1,9 @@
 # Qualified 0.2.0 package delivery
 
+**Closed:** [qualified archive/public installation accepted](../results/2026/11-13/package-delivery.md).
+Both phases passed at eec0ba83; temporary controls are retired. The following
+packet records the executed scope, not a request to replay it.
+
 13 November 2026. Standing all-project publication and checks approval covers
 this concrete release packet. The [test brief](https://app.notion.com/p/406a1ee8bd0680c29ec6f7e04b2c0065)
 requires a Vitest companion. Its accepted runtime currently lacks a downloadable
