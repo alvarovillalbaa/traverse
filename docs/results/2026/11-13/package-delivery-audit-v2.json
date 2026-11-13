@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 2,
+  "kind": "traverse.package-delivery-data-audit",
+  "passed": true,
+  "dataOnly": true,
+  "verifierSha256": "3d2b18b1af17c630d32b8480ae4d162292fb7cc600cc4cfbb8527aee49b4838f",
+  "packageOrModelReexecuted": false,
+  "ignoredLocalTarballRequired": false,
+  "archiveBytes": 29478,
+  "archiveSha256": "b79d9259d6fd40cf0a18fc185ba449be459fe8803d2700822f0440f240e48ebb",
+  "exactQualifiedMembers": 24,
+  "installedEntryPoints": 4,
+  "completeStreams": 14,
+  "sourceGuards": 8,
+  "phases": [
+    {
+      "phase": "pack",
+      "runId": "43413669599",
+      "commands": 3,
+      "completeStreams": 6,
+      "sourceGuards": 4,
+      "ownedFiles": 562,
+      "ownedBytes": 1538039,
+      "rootAbsent": true,
+      "uploadedProofRemoved": true
+    },
+    {
+      "phase": "public",
+      "runId": "43414350393",
+      "commands": 4,
+      "completeStreams": 8,
+      "sourceGuards": 4,
+      "ownedFiles": 584,
+      "ownedBytes": 1560043,
+      "rootAbsent": true,
+      "uploadedProofRemoved": true
+    }
+  ],
+  "limits": [
+    "Retained-data arithmetic/hash audit, not a fresh consumer or independent host attestation.",
+    "Prior runtime/browser evidence stays at its own sources; no live inference quality, npm registry or full-portfolio acceptance.",
+    "Direct process groups/root/proof retirement do not establish every detached child or whole-host disposal."
+  ]
+}

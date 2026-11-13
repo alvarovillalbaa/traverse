@@ -36,7 +36,7 @@ Original pack [JSON](package-pack-original.json), [ZIP](package-pack-original.zi
 and [lossless job log](package-pack-log.json), plus public
 [JSON](package-public-original.json), [ZIP](package-public-original.zip) and
 [log](package-public-log.json), remain unchanged. The
-[data-only verifier](verify-package-delivery.py) and [audit](package-delivery-audit.json)
+[portable data-only verifier](verify-package-delivery-v2.py) and [audit](package-delivery-audit-v2.json)
 verify complete Git vectors, 14 original streams/eight guards, archive/member/
 installed bytes, command outcomes and proof retirement from those originals.
 They do not rerun a package, browser or model. Both temporary workflows are
@@ -47,6 +47,13 @@ readbacks both found no release. The existing GitHub API CLI then created one
 draft, uploaded/verified all three assets, and published that reviewed draft
 once. The failed command and reconciliation remain in the publication receipt;
 no permission failure or ambiguous write was retried blindly.
+
+The first data-only audit passed while an ignored local tarball copy existed.
+The repository's existing tarball ignore rule excluded that copy from publication.
+V2 reads the exact archive bytes already retained in both original JSON packets,
+so a fresh checkout needs no ignored file or download. The original verifier/
+audit remain preserved with their local-copy requirement; no runtime case,
+archive, release asset or CI outcome was changed for this correction.
 
 The earlier 45 core/17 installed contracts and optional executor's26 unit/two
 Chromium/type checks stay closed at their own sources. No legacy test was rerun
