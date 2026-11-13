@@ -1,0 +1,43 @@
+name: Temporary Traverse package delivery
+on:
+  create:
+permissions:
+  contents: read
+jobs:
+  package:
+    if: github.repository == 'alvarovillalbaa/traverse' && github.event.repository.private == false && github.event.ref_type == 'branch' && github.event.ref == 'qa/traverse-package-20261113-APPROVED_PHASE-1'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      SOURCE_COMMIT: APPROVED_SOURCE_COMMIT
+      TRAVERSE_PHASE: APPROVED_PHASE
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ env.SOURCE_COMMIT }}
+          persist-credentials: false
+          fetch-depth: 0
+          clean: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24.21.0
+          package-manager-cache: false
+      - name: Exact package phase
+        id: scope
+        run: python3 scripts/package-candidate.py
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        id: proof
+        if: always()
+        with:
+          name: traverse-package-${{ github.run_id }}
+          path: ${{ runner.temp }}/traverse-package-${{ github.run_id }}.json
+          if-no-files-found: error
+          retention-days: 1
+      - name: Retire exact uploaded proof
+        if: always() && steps.proof.outcome == 'success' && steps.scope.outputs.report_sha != ''
+        env:
+          REPORT_SHA: ${{ steps.scope.outputs.report_sha }}
+          REPORT_DEV: ${{ steps.scope.outputs.report_dev }}
+          REPORT_INO: ${{ steps.scope.outputs.report_ino }}
+        run: python3 scripts/package-candidate.py --retire

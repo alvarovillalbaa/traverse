@@ -25,3 +25,15 @@ Last updated: 2026-10-28
   their supplied §14 gates. No paid plan or new account is authorized.
 - Personal GitHub source publication is authorized by the all-project goal.
   Keep canonical product and acceptance evidence in this repository's `docs/`.
+
+## Qualified package publication — 13 November 2026
+
+Standing all-work/publication/checks approval covers the exact
+[candidate packet](docs/proposals/package-candidate.md): two public ten-minute
+jobs, byte-exact qualified0.2.0 tgz, new personal GitHub prerelease and anonymous
+fresh offline installation/four entry imports. Export only the24 previously
+qualified members fromff7fdd20; do not amend their historical doc snapshots or
+rerun closed application/browser cases. No registry/provider/account/paid action,
+runtime dependency/version/lock/prompt change or local heavy execution. Native
+Storage Guard2.2/34GiB fails. Preserve original failures/streams/source guards,
+remove only owned scratch/uploaded proof and retire exact temporary controls.
